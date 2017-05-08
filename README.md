@@ -346,8 +346,14 @@ Like in the code-along, the 'action' methods in `app-places.js` have no content;
  you'll need to fill them up with code for doing CRUD on your new model.
 
 ## Additional Resources
+Developers should run these often!
 
 -   The Mongoose API docs at [http://mongoosejs.com/docs/api.html](http://mongoosejs.com/docs/api.html)
+-   `grunt nag`: runs code quality analysis tools on your code
+    and complains.
+-   `grunt test`: runs any automated tests; may depend on `grunt build`.
+-   `grunt`: runs both `nag` and then `test`
+-   `grunt make-standard`: reformats all your code in the standard style.
 
 ## [License](LICENSE)
 
