@@ -26,7 +26,8 @@ Fortunately, there's a tool called Mongoose that will help to address these
 
 ## Preparation
 
-Fork and clone this repo; then run `npm install`.
+1. [Fork and clone](https://github.com/ga-wdi-boston/meta/wiki/ForkAndClone) this repository
+1. Install dependencies with `npm install`.
 
 ## Mongoose Schemas, Models, and Documents
 
@@ -346,9 +347,14 @@ Like in the code-along, the 'action' methods in `app-places.js` have no content;
  you'll need to fill them up with code for doing CRUD on your new model.
 
 ## Additional Resources
-Developers should run these often!
+
 
 -   The Mongoose API docs at [http://mongoosejs.com/docs/api.html](http://mongoosejs.com/docs/api.html)
+
+## Tasks
+
+Developers should run these often!
+
 -   `grunt nag`: runs code quality analysis tools on your code
     and complains.
 -   `grunt test`: runs any automated tests; may depend on `grunt build`.

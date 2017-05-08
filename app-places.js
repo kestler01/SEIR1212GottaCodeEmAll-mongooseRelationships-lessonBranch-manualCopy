@@ -1,4 +1,3 @@
-// jshint node: true
 'use strict';
 
 const mongoose = require('mongoose');
@@ -35,7 +34,6 @@ const destroy = function(id) {
 db.once('open', function() {
   let command = process.argv[2];
 
-  // Using more than once, avoiding jshint complaints
   let field;
   let id;
 

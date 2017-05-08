@@ -25,7 +25,7 @@ const loadPeople = () =>
 
     parser.on('readable', () => {
       let record;
-      while (record = parser.read()) { // jshint ignore:line
+      while (record = parser.read()) { 
         people.push(mapPerson(record));
       }
     });
