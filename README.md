@@ -19,10 +19,11 @@ Fortunately, there's a tool called Mongoose that will help to address these
 
 ## Objectives
 
--   Use Mongoose to access and manipulate a MongoDB database from
-     a JavaScript program.
--   Use JavaScript Promises to combine Mongoose operations.
--   Set up validations in Mongoose to validate data for storage in MongoDB.
+By the end of this talk, developers should be able to:
+
+- Access and manipulate a MongoDb database from a javascript program by using Mongoose
+- Combine multiple Mongoose operations by using Javascript Promises
+- Validate data for storage in MongoDb by setting up Mongoose validations
 
 ## Preparation
 
