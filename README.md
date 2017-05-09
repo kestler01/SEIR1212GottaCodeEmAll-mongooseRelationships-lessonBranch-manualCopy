@@ -21,9 +21,9 @@ Fortunately, there's a tool called Mongoose that will help to address these
 
 By the end of this talk, developers should be able to:
 
-- Access and manipulate a MongoDb database from a javascript program by using Mongoose
+- Access and manipulate a MongoDB database from a Javascript program by using Mongoose
 - Combine multiple Mongoose operations by using Javascript Promises
-- Validate data for storage in MongoDb by setting up Mongoose validations
+- Validate data for storage in MongoDB by setting up Mongoose validations
 
 ## Preparation
 
@@ -112,9 +112,7 @@ using the `validate` option:
 #### Virtual Attributes
 
 Another neat feature of Schemas is the ability to define 'virtual attributes':
- attributes whose values are interrelated with the values of other attributes.
-In reality, these 'attributes' are actually just a pair of functions -
- `get` and `set`, specifically.
+ document properties that you can get and set but that do not get persisted to MongoDB. In reality, a virtual attribute is just a combination of two functions, a getter and a setter. The getters are useful for formatting or combining fields, like `fullName` being a combination of `givenName` and `familyName`. Setters are useful for decomposing a single value into multiple values for storage.
 
 [personSchema with virtuals example](person-schema-example.js)
 
