@@ -19,14 +19,16 @@ Fortunately, there's a tool called Mongoose that will help to address these
 
 ## Objectives
 
--   Use Mongoose to access and manipulate a MongoDB database from
-     a JavaScript program.
--   Use JavaScript Promises to combine Mongoose operations.
--   Set up validations in Mongoose to validate data for storage in MongoDB.
+By the end of this talk, developers should be able to:
+
+- Access and manipulate a MongoDB database from a Javascript program by using Mongoose
+- Combine multiple Mongoose operations by using Javascript Promises
+- Validate data for storage in MongoDB by setting up Mongoose validations
 
 ## Preparation
 
-Fork and clone this repo; then run `npm install`.
+1. [Fork and clone](https://github.com/ga-wdi-boston/meta/wiki/ForkAndClone) this repository
+1. Install dependencies with `npm install`.
 
 ## Mongoose Schemas, Models, and Documents
 
@@ -56,27 +58,9 @@ The core elements of Mongoose are:
 
 Let's look at an example.
 
-```javascript
-const mongoose = require('mongoose');
+[personSchema example](person-schema-example.js)
 
-const personSchema = new mongoose.Schema({
-  name: {
-    given: String,
-    surname: String
-  }
-});
-
-const Person = mongoose.model('Person', personSchema);
-
-let person = Person.create({...});
-// alternatively,
-/*
-   let person = new Person({...});
-   person.save();
-*/
-```
-
-`personSchema` above is a new Mongoose Schema;
+Here, `personSchema` is a new Mongoose Schema;
  it specifies a `name` property with `given` and `surname` sub-properties.
 That Schema gets passed into `mongoose.model` as an argument,
  where it is used to create the `Person` model;
@@ -96,31 +80,7 @@ In addition to specifying what type of data each attribute is,
 
 This can be done by replacing the type's name in the Schema with an object,
  like so:
-
-```javascript
-const someSchema = new mongoose.Schema({
-  name: {
-    given: {
-      type: String,
-      set: capitalize
-    },
-    surname:  {
-      type: String,
-      set: capitalize
-    },
-  }
-  location: {
-    type: String,
-    default: 'Boston'
-  }
-});
-
-// if we were to use `capitalize` it would need to be defined elsewhere
-const capitalize = function(val) {
-  if (typeof val !== 'string') val = '';
-  return val.charAt(0).toUpperCase() + val.substring(1);
-};
-```
+[Schema Example with Setters](some-schema-example.js)
 
 A full list of these options can be found in the [Mongoose API documentation](http://mongoosejs.com/docs/api.html).
 
@@ -131,15 +91,7 @@ As mentioned, MongoDB does not put any limitations on what you put in your
 Fortunately, Mongoose provides a way to add some boundaries using
  [validators](http://mongoosejs.com/docs/validation.html).
 
-```javascript
-const someSchema = new Schema({
-    name: {
-      type: String,
-      required: true
-    },
-    height: Number
-});
-```
+[Schema Example with Validators](some-schema-validators-example.js)
 
 Validators are associated with different 'SchemaTypes',
  i.e. the kind of data that the attribute holds.
@@ -155,41 +107,18 @@ Every SchemaType implements the `required` validator,
 Additionally, custom validators can be written for any type at any time,
 using the `validate` option:
 
-```javascript
-const someSchema = new Schema({
-    someEvenValue : {
-      type: Number
-      validate: {
-        validator: function(num){
-          return num%2 === 0;
-        },
-        message: 'Must be even.'
-      }
-    }
-});
-```
+[Schema Example with Validators](some-schema-validators-example.js)
 
 #### Virtual Attributes
 
 Another neat feature of Schemas is the ability to define 'virtual attributes':
- attributes whose values are interrelated with the values of other attributes.
-In reality, these 'attributes' are actually just a pair of functions -
- `get` and `set`, specifically.
+ document properties that you can get and set but that do not get persisted to MongoDB. In reality, a virtual attribute is just a combination of two functions, a getter and a setter. The getters are useful for formatting or combining fields, like `fullName` being a combination of `givenName` and `familyName`. Setters are useful for decomposing a single value into multiple values for storage.
+
+[personSchema with virtuals example](person-schema-example.js)
 
 Assuming we have `name.given` and `name.surname` properties:
  we can derive a `name.full property` from them.
 
-```js
-personSchema.virtual('name.full').get(function () {
-  return this.name.given + ' ' + this.name.surname;
-});
-
-personSchema.virtual('name.full').set(function (name) {
-  let split = name.split(' ');
-  this.name.given = split[0];
-  this.name.surname = split[1];
-});
-```
 
 ## Code-Along
 
@@ -197,33 +126,13 @@ We're going to create a simple _command-line_ program that allows us
  to perform CRUD in a MongoDB database called `mongoose-crud`
  over a collection called `people`, and display JSON data back in the console.
 The code for this program will be found in `app-people.js`,
- in the root of this repository.
+ in the bin of this repository.
 The code for reading from the console has already been written for us
  so that we can focus _exclusively_ on the Mongoose piece of the puzzle.
 
 As you can see, the code in that section is incomplete.
 
-```javascript
-const create = function(givenName, surname, dob, gender) {
-  /* Add Code Here */
-};
-
-const index = function() {
-  /* Add Code Here */
-};
-
-const show = function(id) {
-  /* Add Code Here */
-};
-
-const update = function(id, field, value) {
-  /* Add Code Here */
-};
-
-const destroy = function(id) {
-  /* Add Code Here */
-};
-```
+[app-people.js](bin/app-people.js)
 
 We're going to add the missing code so that our app can do CRUD.
 
@@ -287,7 +196,7 @@ Mongoose has a couple of methods for doing this, just like ActiveRecord did.
 
 For `index`, we want to get all People, so we'll use `find`.
 
-The Mongoose documentation gives the signature of `find` as
+The [Mongoose documentation](http://mongoosejs.com/docs/api.html#model_Model.find) gives the signature of `find` as
 
 ```javascript
 Model.find(conditions, [projection], [options], [callback])
@@ -339,7 +248,7 @@ You should ensure that only reasonable values of latitude and longitude are
  allowed to be added to the database.
 
 Create a new file for your Mongoose model, and load it from
- the `app-places.js` file; that file will provide a command-line UI for
+ the `app-places.js` file located in the `bin` directory; that file will provide a command-line UI for
  performing CRUD on you new Places resource.
 
 Like in the code-along, the 'action' methods in `app-places.js` have no content;
@@ -347,7 +256,18 @@ Like in the code-along, the 'action' methods in `app-places.js` have no content;
 
 ## Additional Resources
 
+
 -   The Mongoose API docs at [http://mongoosejs.com/docs/api.html](http://mongoosejs.com/docs/api.html)
+
+## Tasks
+
+Developers should run these often!
+
+-   `grunt nag`: runs code quality analysis tools on your code
+    and complains.
+-   `grunt test`: runs any automated tests; may depend on `grunt build`.
+-   `grunt`: runs both `nag` and then `test`
+-   `grunt make-standard`: reformats all your code in the standard style.
 
 ## [License](LICENSE)
 
