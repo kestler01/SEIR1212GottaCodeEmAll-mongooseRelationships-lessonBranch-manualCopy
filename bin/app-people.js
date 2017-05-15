@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise
 mongoose.connect('mongodb://localhost/mongoose-crud')
 const db = mongoose.connection
 
-const Person = require('./models/person.js')
+const Person = require('../models/person.js')
 
 const done = function () {
   db.close()
