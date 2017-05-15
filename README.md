@@ -58,7 +58,7 @@ The core elements of Mongoose are:
 
 Let's look at an example.
 
-[personSchema example](person-schema-example.js)
+[personSchema example](lib/person-schema-example.js)
 
 Here, `personSchema` is a new Mongoose Schema;
  it specifies a `name` property with `given` and `surname` sub-properties.
@@ -80,7 +80,7 @@ In addition to specifying what type of data each attribute is,
 
 This can be done by replacing the type's name in the Schema with an object,
  like so:
-[Schema Example with Setters](some-schema-example.js)
+[Schema Example with Setters](lib/some-schema-example.js)
 
 A full list of these options can be found in the [Mongoose API documentation](http://mongoosejs.com/docs/api.html).
 
@@ -91,7 +91,7 @@ As mentioned, MongoDB does not put any limitations on what you put in your
 Fortunately, Mongoose provides a way to add some boundaries using
  [validators](http://mongoosejs.com/docs/validation.html).
 
-[Schema Example with Validators](some-schema-validators-example.js)
+[Schema Example with Validators](lib/some-schema-validators-example.js)
 
 Validators are associated with different 'SchemaTypes',
  i.e. the kind of data that the attribute holds.
@@ -107,14 +107,14 @@ Every SchemaType implements the `required` validator,
 Additionally, custom validators can be written for any type at any time,
 using the `validate` option:
 
-[Schema Example with Validators](some-schema-validators-example.js)
+[Schema Example with Validators](lib/some-schema-validators-example.js)
 
 #### Virtual Attributes
 
 Another neat feature of Schemas is the ability to define 'virtual attributes':
  document properties that you can get and set but that do not get persisted to MongoDB. In reality, a virtual attribute is just a combination of two functions, a getter and a setter. The getters are useful for formatting or combining fields, like `fullName` being a combination of `givenName` and `familyName`. Setters are useful for decomposing a single value into multiple values for storage.
 
-[personSchema with virtuals example](person-schema-example.js)
+[personSchema with virtuals example](lib/person-schema-example.js)
 
 Assuming we have `name.given` and `name.surname` properties:
  we can derive a `name.full property` from them.
