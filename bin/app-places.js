@@ -1,76 +1,75 @@
-'use strict';
+'use strict'
 
-const mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/mongoose-crud');
-const db = mongoose.connection;
+const mongoose = require('mongoose')
+mongoose.Promise = global.Promise
+mongoose.connect('mongodb://localhost/mongoose-crud')
+const db = mongoose.connection
 
-const done = function() {
-  db.close();
-};
+const done = function () {
+  db.close()
+}
 
 // CRUD Actions
-const create = function(name, latitude, longitude, country) {
+const create = function (name, latitude, longitude, country) {
   /* Add Code Here */
-};
+}
 
-const index = function(field, criterion) {
+const index = function (field, criterion) {
   /* Add Code Here */
-};
+}
 
-const show = function() {
+const show = function () {
   /* Add Code Here */
-};
+}
 
-const update = function(id, field, value) {
+const update = function (id, field, value) {
   /* Add Code Here */
-};
+}
 
-const destroy = function(id) {
+const destroy = function (id) {
   /* Add Code Here */
-};
+}
 
 // UI
-db.once('open', function() {
-  let command = process.argv[2];
+db.once('open', function () {
+  const command = process.argv[2]
 
-  let field;
-  let id;
+  let field
+  let id
 
   switch (command) {
     case 'create':
-      let name = process.argv[3];
-      let latitude = process.argv[4];
-      let longitude =  process.argv[5];
-      let country =  process.argv[6];
+      const name = process.argv[3]
+      const latitude = process.argv[4]
+      const longitude = process.argv[5]
+      const country = process.argv[6]
       if (true || name) {
-        create(name, latitude, longitude, country);
+        create(name, latitude, longitude, country)
       } else {
-        console.log('usage create <name> <latitutde> <longitude> [country]');
-        done();
+        console.log('usage create <name> <latitutde> <longitude> [country]')
+        done()
       }
-      break;
+      break
 
     case `show`:
-      id = process.argv[3];
-      show(id);
-      break;
+      id = process.argv[3]
+      show(id)
+      break
 
     case 'update':
-      id = process.argv[3];
-      field = process.argv[4];
-      let value = process.argv[5];
-      update(id, field, value);
-      break;
+      id = process.argv[3]
+      field = process.argv[4]
+      const value = process.argv[5]
+      update(id, field, value)
+      break
 
     case 'destroy':
-      id = process.argv[3];
-      destroy(id);
-      break;
+      id = process.argv[3]
+      destroy(id)
+      break
 
     default:
-      index();
-      break;
+      index()
+      break
   }
-
-});
+})
