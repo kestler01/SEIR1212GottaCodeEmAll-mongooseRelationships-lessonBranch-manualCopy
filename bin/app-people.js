@@ -45,12 +45,9 @@ db.once('open', function () {
       const gender = process.argv[6]
       const height = process.argv[7]
       const weight = process.argv[8]
-      if (true || givenName) {
-        create(givenName, surname, dob, gender, height, weight)
-      } else {
-        console.log('usage c <given_name> <surname> <date of birth> [gender], <height>, <weight>')
-        done()
-      }
+
+      create(givenName, surname, dob, gender, height, weight)
+
       break
 
     case `show`:
@@ -72,6 +69,9 @@ db.once('open', function () {
 
     default:
       index()
+
       break
   }
 })
+
+module.exports = Person
