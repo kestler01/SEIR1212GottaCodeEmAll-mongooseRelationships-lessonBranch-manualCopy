@@ -117,7 +117,7 @@ Another neat feature of Schemas is the ability to define 'virtual attributes':
 [personSchema with virtuals example](lib/person-schema-example.js)
 
 Assuming we have `name.given` and `name.surname` properties:
- we can derive a `name.full property` from them.
+ we can derive a `name.full` property from them.
 
 
 ## Code-Along
