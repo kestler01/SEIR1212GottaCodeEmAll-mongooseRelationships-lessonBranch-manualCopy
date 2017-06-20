@@ -15,7 +15,7 @@ Fortunately, there's a tool called Mongoose that will help to address these
 
 ## Prerequisites
 
--   MongoDB
+-   [MongoDB](https://git.generalassemb.ly/ga-wdi-boston/mongodb-crud)
 
 ## Objectives
 
@@ -27,7 +27,7 @@ By the end of this talk, developers should be able to:
 
 ## Preparation
 
-1. [Fork and clone](https://github.com/ga-wdi-boston/meta/wiki/ForkAndClone) this repository
+1. [Fork and clone](https://git.generalassemb.ly/ga-wdi-boston/meta/wiki/ForkAndClone) this repository
 1. Install dependencies with `npm install`.
 
 ## Mongoose Schemas, Models, and Documents
@@ -91,7 +91,7 @@ As mentioned, MongoDB does not put any limitations on what you put in your
 Fortunately, Mongoose provides a way to add some boundaries using
  [validators](http://mongoosejs.com/docs/validation.html).
 
-[Schema Example with Validators](lib/some-schema-validators-example.js)
+[Schema Example with Validators](lib/some-schema-validator-example.js)
 
 Validators are associated with different 'SchemaTypes',
  i.e. the kind of data that the attribute holds.
@@ -107,7 +107,7 @@ Every SchemaType implements the `required` validator,
 Additionally, custom validators can be written for any type at any time,
 using the `validate` option:
 
-[Schema Example with Validators](lib/some-schema-validators-example.js)
+[Schema Example with Validators](lib/another-schema-validator-example.js)
 
 #### Virtual Attributes
 
