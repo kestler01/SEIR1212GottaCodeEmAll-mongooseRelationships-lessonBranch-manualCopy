@@ -91,7 +91,7 @@ As mentioned, MongoDB does not put any limitations on what you put in your
 Fortunately, Mongoose provides a way to add some boundaries using
  [validators](http://mongoosejs.com/docs/validation.html).
 
-[Schema Example with Validators](lib/some-schema-validator-example.js)
+[Schema Example with Validator](lib/some-schema-validator-example.js)
 
 Validators are associated with different 'SchemaTypes',
  i.e. the kind of data that the attribute holds.
@@ -107,7 +107,7 @@ Every SchemaType implements the `required` validator,
 Additionally, custom validators can be written for any type at any time,
 using the `validate` option:
 
-[Schema Example with Validators](lib/another-schema-validator-example.js)
+[Another Schema Example with Validator](lib/another-schema-validator-example.js)
 
 #### Virtual Attributes
 
