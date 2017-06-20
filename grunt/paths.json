@@ -4,7 +4,8 @@
       "bin/**/*.js",
       "lib/**/*.js",
       "spec/**/*.spec.js",
-      "snippets/**/*.js"
+      "snippets/**/*.js",
+      "scripts/*.js"
     ],
     "spec": [
       "spec/**/*.spec.js"
