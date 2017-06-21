@@ -43,12 +43,9 @@ db.once('open', function () {
       const latitude = process.argv[4]
       const longitude = process.argv[5]
       const country = process.argv[6]
-      if (true || name) {
-        create(name, latitude, longitude, country)
-      } else {
-        console.log('usage create <name> <latitutde> <longitude> [country]')
-        done()
-      }
+
+      create(name, latitude, longitude, country)
+
       break
 
     case `show`:
