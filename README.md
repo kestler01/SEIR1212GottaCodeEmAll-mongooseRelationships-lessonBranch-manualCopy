@@ -122,13 +122,13 @@ Assuming we have `name.given` and `name.surname` properties:
 
 ## Code-Along
 
-We're going to create a simple _command-line_ program that allows us
- to perform CRUD in a MongoDB database called `mongoose-crud`
- over a collection called `people`, and display JSON data back in the console.
-The code for this program will be found in `app-people.js`,
- in the bin of this repository.
-The code for reading from the console has already been written for us
- so that we can focus _exclusively_ on the Mongoose piece of the puzzle.
+We're going to create a simple _command-line_ program that will mimic what we've
+seen in Rails. This "controller-like" script will allow us to perform CRUD in a
+MongoDB database called `mongoose-crud` over a collection called `people`, and
+display JSON data back in the console.
+The code for this program will be found in `app-people.js`, in the bin of this
+repository. The code for reading from the console has already been written for
+us so that we can focus _exclusively_ on the Mongoose piece of the puzzle.
 
 As you can see, the code in that section is incomplete.
 
@@ -160,28 +160,6 @@ Finally, we'll need to `require` this Model from `app-people.js`
 
 Now let's actually get into writing the CRUD actions.
 
-### Create
-
-Finishing the `create` method will be pretty straightforward,
- since Mongoose already gives us a `create` method.
-
-According to the documentation, here is the signature for `create`:
-
-```javascript
-Model.create(doc(s), [callback])
-```
-
-This means that the `create` method takes an object representing a document
- (or several objects, representing multiple documents)
- with an optional callback as the final argument.
-That callback will be handed several arguments:
- first, a reference to any errors created during the `create` operation,
- and
- second, a list of references to the newly created documents
- (one for each object passed in).
-
-*Please follow as I code along this action.*
-
 ### Read
 
 Next, let's fill in the `index` and `read` (i.e. `search`) methods.
@@ -206,10 +184,21 @@ Model.find(conditions, [projection], [options], [callback])
  optional parameters `projection` and `options` offer additional configuration;
  lastly, `find` accepts a callback.
 
+Pro tip: if you use ``<query term(s)> site:mongoosejs.com` or in this case "find
+site:mongoosejs.com" google will only search that site!
+
 *Please follow along as I code this action.*
 
 Now let's implement `show`. We'll use `findById` instead of `find`,
  since we specifically want to look up a document by its ID.
+
+*Please follow along as I code this action*
+
+### Destroy
+
+The `destroy` method should look a lot like the `show` and `update` methods.
+
+The Mongoose method we want to use here is [`remove`](http://mongoosejs.com/docs/api.html#query_Query-remove);
 
 *Please follow along as I code this action*
 
@@ -222,15 +211,30 @@ As we've just seen, the first of these can be accomplished using `findById`.
 To do the second, we need to actually change a property on the document,
  and then run [`.save`](http://mongoosejs.com/docs/api.html#model_Model-save).
 
-*Please follow along as I code*
+*Please follow along as I code this action*
 
-### Destroy
+### Create
 
-The `destroy` method should look a lot like the `show` and `update` methods.
+Finishing the `create` method will be pretty straightforward,
+ since Mongoose already gives us a `create` method.
 
-The Mongoose method we want to use here is [`remove`](http://mongoosejs.com/docs/api.html#query_Query-remove);
+According to the documentation, here is the signature for `create`:
 
-*Please follow along as I code*
+```javascript
+Model.create(doc(s), [callback])
+```
+
+This means that the `create` method takes an object representing a document
+ (or several objects, representing multiple documents)
+ with an optional callback as the final argument.
+That callback will be handed several arguments:
+ first, a reference to any errors created during the `create` operation,
+ and
+ second, a list of references to the newly created documents
+ (one for each object passed in).
+
+*Please follow along as I code this action*
+
 
 ## Lab
 

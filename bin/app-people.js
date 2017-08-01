@@ -11,10 +11,6 @@ const done = function () {
   db.close()
 }
 
-const create = function (givenName, surname, dob, gender, height, weight) {
-  /* Add Code Here */
-}
-
 const index = function () {
   /* Add Code Here */
 }
@@ -23,11 +19,15 @@ const show = function (id) {
   /* Add Code Here */
 }
 
+const destroy = function (id) {
+  /* Add Code Here */
+}
+
 const update = function (id, field, value) {
   /* Add Code Here */
 }
 
-const destroy = function (id) {
+const create = function (givenName, surname, dob, gender, height, weight) {
   /* Add Code Here */
 }
 
