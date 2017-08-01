@@ -29,9 +29,6 @@ const loadPeople = () =>
       if (record) {
         people.push(mapPerson(record))
       }
-      // if (record = parser.read()) {
-      //   people.push(mapPerson(record))
-      // }
     })
 
     parser.on('error', e => reject(e))
