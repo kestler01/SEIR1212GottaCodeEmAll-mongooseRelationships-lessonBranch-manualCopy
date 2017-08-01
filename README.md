@@ -206,6 +206,9 @@ Model.find(conditions, [projection], [options], [callback])
  optional parameters `projection` and `options` offer additional configuration;
  lastly, `find` accepts a callback.
 
+Pro tip: if you use ``<query term(s)> site:mongoosejs.com` or in this case "find
+site:mongoosejs.com" google will only search that site!
+
 *Please follow along as I code this action.*
 
 Now let's implement `show`. We'll use `findById` instead of `find`,
