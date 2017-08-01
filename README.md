@@ -160,28 +160,6 @@ Finally, we'll need to `require` this Model from `app-people.js`
 
 Now let's actually get into writing the CRUD actions.
 
-### Create
-
-Finishing the `create` method will be pretty straightforward,
- since Mongoose already gives us a `create` method.
-
-According to the documentation, here is the signature for `create`:
-
-```javascript
-Model.create(doc(s), [callback])
-```
-
-This means that the `create` method takes an object representing a document
- (or several objects, representing multiple documents)
- with an optional callback as the final argument.
-That callback will be handed several arguments:
- first, a reference to any errors created during the `create` operation,
- and
- second, a list of references to the newly created documents
- (one for each object passed in).
-
-*Please follow along as I code this action*
-
 ### Read
 
 Next, let's fill in the `index` and `read` (i.e. `search`) methods.
@@ -216,6 +194,14 @@ Now let's implement `show`. We'll use `findById` instead of `find`,
 
 *Please follow along as I code this action*
 
+### Destroy
+
+The `destroy` method should look a lot like the `show` and `update` methods.
+
+The Mongoose method we want to use here is [`remove`](http://mongoosejs.com/docs/api.html#query_Query-remove);
+
+*Please follow along as I code this action*
+
 ### Update
 
 To do an update in Rails, you need to
@@ -227,13 +213,28 @@ To do the second, we need to actually change a property on the document,
 
 *Please follow along as I code this action*
 
-### Destroy
+### Create
 
-The `destroy` method should look a lot like the `show` and `update` methods.
+Finishing the `create` method will be pretty straightforward,
+ since Mongoose already gives us a `create` method.
 
-The Mongoose method we want to use here is [`remove`](http://mongoosejs.com/docs/api.html#query_Query-remove);
+According to the documentation, here is the signature for `create`:
+
+```javascript
+Model.create(doc(s), [callback])
+```
+
+This means that the `create` method takes an object representing a document
+ (or several objects, representing multiple documents)
+ with an optional callback as the final argument.
+That callback will be handed several arguments:
+ first, a reference to any errors created during the `create` operation,
+ and
+ second, a list of references to the newly created documents
+ (one for each object passed in).
 
 *Please follow along as I code this action*
+
 
 ## Lab
 
