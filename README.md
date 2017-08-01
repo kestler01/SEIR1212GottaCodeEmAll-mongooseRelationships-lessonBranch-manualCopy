@@ -180,7 +180,7 @@ That callback will be handed several arguments:
  second, a list of references to the newly created documents
  (one for each object passed in).
 
-*Please follow as I code along this action.*
+*Please follow along as I code this action*
 
 ### Read
 
@@ -222,7 +222,7 @@ As we've just seen, the first of these can be accomplished using `findById`.
 To do the second, we need to actually change a property on the document,
  and then run [`.save`](http://mongoosejs.com/docs/api.html#model_Model-save).
 
-*Please follow along as I code*
+*Please follow along as I code this action*
 
 ### Destroy
 
@@ -230,7 +230,7 @@ The `destroy` method should look a lot like the `show` and `update` methods.
 
 The Mongoose method we want to use here is [`remove`](http://mongoosejs.com/docs/api.html#query_Query-remove);
 
-*Please follow along as I code*
+*Please follow along as I code this action*
 
 ## Lab
 
