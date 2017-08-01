@@ -122,13 +122,13 @@ Assuming we have `name.given` and `name.surname` properties:
 
 ## Code-Along
 
-We're going to create a simple _command-line_ program that allows us
- to perform CRUD in a MongoDB database called `mongoose-crud`
- over a collection called `people`, and display JSON data back in the console.
-The code for this program will be found in `app-people.js`,
- in the bin of this repository.
-The code for reading from the console has already been written for us
- so that we can focus _exclusively_ on the Mongoose piece of the puzzle.
+We're going to create a simple _command-line_ program that will mimic what we've
+seen in Rails. This "controller-like" script will allow us to perform CRUD in a
+MongoDB database called `mongoose-crud` over a collection called `people`, and
+display JSON data back in the console.
+The code for this program will be found in `app-people.js`, in the bin of this
+repository. The code for reading from the console has already been written for
+us so that we can focus _exclusively_ on the Mongoose piece of the puzzle.
 
 As you can see, the code in that section is incomplete.
 
