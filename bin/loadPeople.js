@@ -5,9 +5,9 @@ mongoose.Promise = global.Promise
 mongoose.connect('mongodb://localhost/mongoose-crud')
 const db = mongoose.connection
 
-const Person = require('../models/person.js')
+const Person = require('../models/person')
 
-const mapPerson = require('./mapPerson.js')
+const mapPerson = require('../lib/mapPerson')
 
 const done = function () {
   db.close()
@@ -24,8 +24,9 @@ const loadPeople = () =>
     input.on('error', e => reject(e))
 
     parser.on('readable', () => {
-      let record
-      while (record === parser.read()) {
+      const record = parser.read()
+
+      if (record) {
         people.push(mapPerson(record))
       }
     })
@@ -39,8 +40,8 @@ db.once('open', function () {
   loadPeople()
     // Below is the way to insert that bypasses mongoose validations
     // .then((people) => {
-    //   Person.collection.insert(people);
-    // }
+    //   Person.collection.insert(people)
+    // })
 
     // This inserts and runs the documents through mongoose validations
     .then(Person.insertMany)
