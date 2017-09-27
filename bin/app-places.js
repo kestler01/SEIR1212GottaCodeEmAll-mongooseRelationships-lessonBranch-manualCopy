@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise
 mongoose.connect('mongodb://localhost/mongoose-crud')
 const db = mongoose.connection
 
-const done = function () {
+const done = function () { // eslint-disable-line no-unused-vars
   db.close()
 }
 

@@ -7,7 +7,7 @@ const db = mongoose.connection
 
 const Person = require('../models/person.js')
 
-const done = function () {
+const done = function () { // eslint-disable-line no-unused-vars
   db.close()
 }
 
