@@ -2,7 +2,9 @@
 
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb://localhost/mongoose-crud')
+mongoose.connect('mongodb://localhost/mongoose-crud', {
+  useMongoClient: true
+})
 const db = mongoose.connection
 
 const Person = require('../models/person')
