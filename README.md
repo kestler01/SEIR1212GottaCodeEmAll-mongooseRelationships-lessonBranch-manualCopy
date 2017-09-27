@@ -155,7 +155,7 @@ Next, we'll use the Schema to generate a new Model,
 
 Finally, we'll need to `require` this Model from `app-people.js`
  if we want to be able to use it there. And then we can run
- `node scripts/people.js` to load people into our mongoose-crud people
+ `node bin/loadPeople.js` to load people into our mongoose-crud people
  collection in the correct format of our mongoose schema.
 
 Now let's actually get into writing the CRUD actions.
