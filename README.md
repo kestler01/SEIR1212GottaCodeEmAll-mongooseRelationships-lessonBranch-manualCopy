@@ -153,10 +153,12 @@ Additionally, each Person document should have timestamps indicating
 Next, we'll use the Schema to generate a new Model,
  and export that Model out of the module.
 
-Finally, we'll need to `require` this Model from `app-people.js`
- if we want to be able to use it there. And then we can run
- `node bin/loadPeople.js` to load people into our mongoose-crud people
- collection in the correct format of our mongoose schema.
+Finally,  we'll need to `require` this Model from `app-people.js`
+ if we want to be able to use it there.
+
+Once all of the above steps are complete, we can run `node bin/loadPeople.js`
+to load people into our mongoose-crud people collection in the correct format
+of our mongoose schema.
 
 Now let's actually get into writing the CRUD actions.
 
