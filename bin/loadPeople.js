@@ -9,8 +9,6 @@ const db = mongoose.connection
 
 const Person = require('../models/person')
 
-const mapPerson = require('../lib/mapPerson')
-
 const done = function () {
   db.close()
 }
@@ -29,7 +27,12 @@ const loadPeople = () =>
       const record = parser.read()
 
       if (record) {
-        people.push(mapPerson(record))
+        record.name = {given: record.given_name, surname: record.surname}
+
+        delete record.given_name
+        delete record.surname
+
+        people.push(record)
       }
     })
 
