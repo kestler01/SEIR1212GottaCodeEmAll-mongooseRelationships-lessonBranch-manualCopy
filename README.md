@@ -250,8 +250,12 @@ Places have the following features:
 -   isNorthernHemisphere? (virtual)
 -   isWesternHemisphere? (virtual)
 
+First, read [this brief overview](http://www.learner.org/jnorth/tm/LongitudeIntro.html) of latitude and longitude.
+
 You should ensure that only reasonable values of latitude and longitude are
- allowed to be added to the database.
+ allowed to be added to the database. Per the above article, latitude and longitude
+ should both be floating point numbers that range from -90 to 90 and -180 to 180,
+ respectively. See [here](https://en.wikipedia.org/wiki/Hemispheres_of_Earth) for info on Earth's hemispheres.
 
 Create a new file for your Mongoose model, and load it from
  the `app-places.js` file located in the `bin` directory; that file will provide a command-line UI for
