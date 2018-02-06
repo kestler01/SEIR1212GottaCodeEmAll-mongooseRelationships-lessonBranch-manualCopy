@@ -20,7 +20,7 @@ const index = function (field, criterion) {
   /* Add Code Here */
 }
 
-const show = function () {
+const show = function (id) {
   /* Add Code Here */
 }
 
