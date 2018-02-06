@@ -27,10 +27,10 @@ const loadPeople = () =>
       const record = parser.read()
 
       if (record) {
-        record.name = {given: record.given_name, surname: record.surname}
+        record.name = {firstName: record.first_name, lastName: record.last_name}
 
-        delete record.given_name
-        delete record.surname
+        delete record.first_name
+        delete record.last_name
 
         people.push(record)
       }
