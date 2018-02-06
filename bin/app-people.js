@@ -29,7 +29,7 @@ const update = function (id, field, value) {
   /* Add Code Here */
 }
 
-const create = function (givenName, surname, dob, gender, height, weight) {
+const create = function (firstName, lastName, dob, gender, height, weight) {
   /* Add Code Here */
 }
 
@@ -41,14 +41,14 @@ db.once('open', function () {
 
   switch (command) {
     case 'create':
-      const givenName = process.argv[3]
-      const surname = process.argv[4]
+      const firstName = process.argv[3]
+      const lastName = process.argv[4]
       const dob = process.argv[5]
       const gender = process.argv[6]
       const height = process.argv[7]
       const weight = process.argv[8]
 
-      create(givenName, surname, dob, gender, height, weight)
+      create(firstName, lastName, dob, gender, height, weight)
 
       break
 

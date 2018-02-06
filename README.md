@@ -59,7 +59,7 @@ Let's look at an example.
 [personSchema example](lib/person-schema-example.js)
 
 Here, `personSchema` is a new Mongoose Schema; it specifies a `name` property
-with `given` and `surname` sub-properties.
+with `firstName` and `lastName` sub-properties.
 
 That Schema gets passed into `mongoose.model` as an argument, where it is used
 to create the `Person` model;
@@ -112,13 +112,13 @@ Another neat feature of Schemas is the ability to define 'virtual attributes':
 document properties that you can get and set but that do not get persisted to
 MongoDB. In reality, a virtual attribute is just a combination of two
 functions, a getter and a setter. The getters are useful for formatting or
-combining fields, like `fullName` being a combination of `givenName` and
-`familyName`. Setters are useful for decomposing a single value into multiple
+combining fields, like `fullName` being a combination of `firstName` and
+`lastName`. Setters are useful for decomposing a single value into multiple
 values for storage.
 
 [personSchema with virtuals example](lib/person-schema-example.js)
 
-Assuming we have `name.given` and `name.surname` properties: we can derive a
+Assuming we have `name.firstName` and `name.lastName` properties: we can derive a
 `name.full` property from them.
 
 ## Code-Along
@@ -147,7 +147,7 @@ mongo mongoose-crud
 
 Inside `person.js`, which is located in the `models` directory, let's first
 define a Schema for Person. A person should have several properties:
-`name.given`, `name.surname`, `dob`, `gender`, `height`, `weight`, and `age` (a
+`name.firstName`, `name.lastName`, `dob`, `gender`, `height`, `weight`, and `age` (a
 virtual property).
 
 Additionally, each Person document should have timestamps indicating when it
@@ -185,7 +185,7 @@ The [Mongoose documentation](http://mongoosejs.com/docs/api.html#model_Model.fin
 Model.find(conditions, [projection], [options], [callback])
 ```
 
-where `conditions` are the search parameters, i.e. `{'name.given': 'Bob'}`;
+where `conditions` are the search parameters, i.e. `{'name.first': 'Bob'}`;
 optional parameters `projection` and `options` offer additional configuration;
 lastly, `find` accepts a callback.
 
