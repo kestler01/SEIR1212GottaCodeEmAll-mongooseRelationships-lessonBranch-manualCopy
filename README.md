@@ -268,6 +268,16 @@ you'll need to fill them up with code for doing CRUD on your new model.
 ## Additional Resources
 
 - The Mongoose API docs at [http://mongoosejs.com/docs/api.html](http://mongoosejs.com/docs/api.html)
+- Mongoose `.toJSON()`
+  - [Mongoose Docs](http://mongoosejs.com/docs/api.html#document_Document-toJSON)
+  - [Alexander Zeitler blog post](https://alexanderzeitler.com/articles/mongoose-tojson-toobject-transform-with-subdocuments/)
+- Mongoose `.populate()`
+  - [Mongoose Docs](http://mongoosejs.com/docs/populate.html)
+  - [Code Barbarian blog post](http://thecodebarbarian.com/mongoose-virtual-populate)
+- Mongoose Subdocuments
+  - [Mongoose Docs](http://mongoosejs.com/docs/subdocs.html)
+  - [Coderwall blog post](https://coderwall.com/p/6v5rcw/querying-sub-documents-and-sub-sub-documents-in-mongoose)
+  - [Stack Overflow](https://stackoverflow.com/questions/21302279/embedded-document-vs-reference-in-mongoose-design-model)
 
 ## Tasks
 
