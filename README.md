@@ -22,9 +22,9 @@ problems.
 
 By the end of this talk, developers should be able to:
 
-- Access and manipulate a MongoDB database from a Javascript program by using Mongoose
-- Combine multiple Mongoose operations by using Javascript Promises
-- Validate data for storage in MongoDB by setting up Mongoose validations
+- Access and manipulate a MongoDB database from a Javascript program by using Mongoose.
+- Combine multiple Mongoose operations by using Javascript Promises.
+- Validate data for storage in MongoDB by setting up Mongoose validations.
 
 ## Preparation
 
