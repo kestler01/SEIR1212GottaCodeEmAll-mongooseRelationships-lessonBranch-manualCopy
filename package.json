@@ -2,9 +2,6 @@
   "name": "ga-wdi-boston.mongoose",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "start": "node bin/index.js"
-  },
   "license": {
     "software": "GNU GPLv3",
     "content": "CC­BY­NC­SA 4.0"
@@ -27,7 +24,6 @@
     "grunt-eslint": "^20.1.0",
     "grunt-jsonlint": "^1.1.0",
     "grunt-mocha-cli": "^3.0.0",
-    "grunt-nodemon": "^0.4.2",
     "load-grunt-config": "^0.19.2",
     "mocha": "^3.5.3",
     "time-grunt": "^1.4.0"
