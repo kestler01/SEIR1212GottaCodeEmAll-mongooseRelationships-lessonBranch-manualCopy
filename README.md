@@ -147,7 +147,7 @@ mongo mongoose-crud
 
 Inside `person.js`, which is located in the `models` directory, let's first
 define a Schema for Person. A person should have several properties:
-`name.firstName`, `name.lastName`, `dob`, `gender`, `height`, `weight`, and `age` (a
+`name.firstName`, `name.lastName`, `dob`, `height`, `weight`, and `age` (a
 virtual property).
 
 Additionally, each Person document should have timestamps indicating when it
