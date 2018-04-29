@@ -29,7 +29,7 @@ const update = function (id, field, value) {
   /* Add Code Here */
 }
 
-const create = function (firstName, lastName, dob, gender, height, weight) {
+const create = function (firstName, lastName, dob, height, weight) {
   /* Add Code Here */
 }
 
@@ -44,11 +44,10 @@ db.once('open', function () {
       const firstName = process.argv[3]
       const lastName = process.argv[4]
       const dob = process.argv[5]
-      const gender = process.argv[6]
-      const height = process.argv[7]
-      const weight = process.argv[8]
+      const height = process.argv[6]
+      const weight = process.argv[7]
 
-      create(firstName, lastName, dob, gender, height, weight)
+      create(firstName, lastName, dob, height, weight)
 
       break
 
