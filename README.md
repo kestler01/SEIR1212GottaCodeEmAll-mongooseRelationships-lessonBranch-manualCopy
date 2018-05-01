@@ -265,6 +265,26 @@ for performing CRUD on you new Places resource.
 Like in the code-along, the 'action' methods in `app-places.js` have no content;
 you'll need to fill them up with code for doing CRUD on your new model.
 
+## Discussion: "Relationships" in Mongoose
+
+As the term "non-relational" implies, MongoDB doesn't have a built-in notion of
+relationship between resources in the same way that SQL does. With Mongoose,
+however, there are several ways to approximate the functionality provided by
+relationships in SQL and ORMs like ActiveRecord. The two main approaches are
+[subdocuments](http://mongoosejs.com/docs/subdocs.html) and
+[populate](http://mongoosejs.com/docs/populate.html).
+
+Read through the documentation on those features, then check out [this Stack
+Overflow discussion](https://stackoverflow.com/questions/21302279/embedded-document-vs-reference-in-mongoose-design-model)
+on the pros and cons of each.
+
+Discuss what you've read with your team. Talk about the differences between the
+two approaches and how you might go about implementing each of them.
+
+You can see an example of `populate` in action in the `solution-relationships`
+branch to this repo. It has a one-to-many relationship set up between people and
+places, the two "controllers" we built out.
+
 ## Additional Resources
 
 - The Mongoose API docs at [http://mongoosejs.com/docs/api.html](http://mongoosejs.com/docs/api.html)
