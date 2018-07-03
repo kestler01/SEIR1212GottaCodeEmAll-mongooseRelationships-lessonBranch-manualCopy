@@ -33,7 +33,7 @@ By the end of this talk, developers should be able to:
 
 ## Mongoose Schemas, Models, and Documents
 
-**"Mongoose is an Object-Document Mapper"**
+> "Mongoose is an Object-Document Mapper"
 
 What does that mean?
 
@@ -192,7 +192,7 @@ lastly, `find` accepts a callback.
 Pro tip: if you use ``<query term(s)> site:mongoosejs.com` or in this case "find
 site:mongoosejs.com" google will only search that site!
 
-*Please follow along as I code this action.*
+*Please follow along as I code this action*
 
 Now let's implement `show`. We'll use `findById` instead of `find`, since we
 specifically want to look up a document by its ID.
@@ -287,7 +287,7 @@ places, the two "controllers" we built out.
 
 ## Additional Resources
 
-- The Mongoose API docs at [http://mongoosejs.com/docs/api.html](http://mongoosejs.com/docs/api.html)
+- [The Mongoose API docs](http://mongoosejs.com/docs/api.html)
 - Mongoose `.toJSON()`
   - [Mongoose Docs](http://mongoosejs.com/docs/api.html#document_Document-toJSON)
   - [Alexander Zeitler blog post](https://alexanderzeitler.com/articles/mongoose-tojson-toobject-transform-with-subdocuments/)
