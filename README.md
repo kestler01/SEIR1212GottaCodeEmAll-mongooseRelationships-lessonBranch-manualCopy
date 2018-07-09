@@ -62,7 +62,7 @@ Here, `personSchema` is a new Mongoose Schema; it specifies a `name` property
 with `firstName` and `lastName` sub-properties.
 
 That Schema gets passed into `mongoose.model` as an argument, where it is used
-to create the `Person` model;
+to create the `Person` model.
 
 Mongoose uses the first argument to map this model to the MongoDB collection
 `people`.
@@ -118,8 +118,8 @@ values for storage.
 
 [personSchema with virtuals example](lib/person-schema-example.js)
 
-Assuming we have `name.firstName` and `name.lastName` properties: we can derive a
-`name.full` property from them.
+Assuming we have `name.firstName` and `name.lastName` properties: we can derive
+a `name.full` property from them.
 
 ## Code-Along
 
@@ -189,8 +189,8 @@ where `conditions` are the search parameters, i.e. `{'name.first': 'Bob'}`;
 optional parameters `projection` and `options` offer additional configuration;
 lastly, `find` accepts a callback.
 
-Pro tip: if you use ``<query term(s)> site:mongoosejs.com` or in this case "find
-site:mongoosejs.com" google will only search that site!
+Pro tip: if you use `<query term(s)> site:mongoosejs.com` or in this case `find
+site:mongoosejs.com` google will only search that site!
 
 *Please follow along as I code this action*
 
