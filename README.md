@@ -167,7 +167,7 @@ Now let's actually get into writing the CRUD actions.
 
 ### Read
 
-Next, let's fill in the `index` and `read` (i.e. `search`) methods. To do this,
+Next, let's fill in the `index` and `show` (i.e. `search`) methods. To do this,
 we're going to need to query MongoDB using Mongoose. Mongoose has a couple of
 methods for doing this, just like ActiveRecord did.
 
