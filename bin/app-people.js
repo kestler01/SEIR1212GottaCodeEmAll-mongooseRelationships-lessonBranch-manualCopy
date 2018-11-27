@@ -51,7 +51,7 @@ db.once('open', function () {
 
       break
 
-    case `show`:
+    case 'show':
       id = process.argv[3]
       show(id)
       break
