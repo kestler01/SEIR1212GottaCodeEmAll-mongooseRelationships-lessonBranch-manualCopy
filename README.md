@@ -147,7 +147,7 @@ mongo mongoose-crud
 
 Inside `person.js`, which is located in the `models` directory, let's first
 define a Schema for Person. A person should have several properties:
-`name.firstName`, `name.lastName`, `dob`, `height`, `weight`, and `age` (a
+`name.firstName`, `name.lastName`, `dob`, `height`, `weight`, and `name.full` (a
 virtual property).
 
 Additionally, each Person document should have timestamps indicating when it
@@ -256,7 +256,8 @@ First, read [this brief overview](http://www.learner.org/jnorth/tm/LongitudeIntr
 You should ensure that only reasonable values of latitude and longitude are
 allowed to be added to the database. Per the above article, latitude and
 longitude should both be numbers that range from -90 to 90 and
--180 to 180, respectively. See [here](https://en.wikipedia.org/wiki/Hemispheres_of_Earth) for info on Earth's hemispheres.
+-180 to 180, respectively. See [here](https://en.wikipedia.org/wiki/Hemispheres_of_Earth)
+for info on Earth's hemispheres.
 
 Create a new file for your Mongoose model, and load it from the `app-places.js`
 file located in the `bin` directory; that file will provide a command-line UI
