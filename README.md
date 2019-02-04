@@ -241,9 +241,23 @@ to the newly created documents (one for each object passed in).
 
 *Please follow along as I code this action*
 
+## Note on Executing Mongoose Queries
+
+Mongoose queries can be executed a few different ways, including callbacks,
+promise-like chains, and a special `.exec` method.
+
+So far we have been executing our queries with promise syntax, but we aren't
+*technically* using real promises.
+
+Most queries in Mongoose allow us to use `.then` and `.catch` for development,
+even though they don't really return a promise for us to chain.
+
+If we need more advanced promise features, we can use `.exec`, which
+[this article](https://stackoverflow.com/questions/31549857/mongoose-what-does-the-exec-function-do) goes into in depth.
+
 ## Lab
 
-In your squads, repeat this exercise for a new resource, Places.
+In your squads, repeat the previous exercise for a new resource, Places.
 Places have the following features:
 
 - name (required)
