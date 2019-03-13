@@ -289,7 +289,7 @@ on the pros and cons of each.
 Discuss what you've read with your team. Talk about the differences between the
 two approaches and how you might go about implementing each of them.
 
-You can see an example of `populate` in action in the `solution-relationships`
+You can see an example of `populate` in action in the `solution`
 branch to this repo. It has a one-to-many relationship set up between people and
 places, the two "controllers" we built out.
 
