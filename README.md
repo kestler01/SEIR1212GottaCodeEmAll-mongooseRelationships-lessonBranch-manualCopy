@@ -144,13 +144,6 @@ As you can see, the code in that section is incomplete.
 
 We're going to add the missing code so that our app can do CRUD.
 
-First, we need to connect to the database that `app-people.js` references,
- `mongoose-crud`.
-
-```bash
-mongo mongoose-crud
-```
-
 Inside `person.js`, which is located in the `models` directory, let's first
 define a Schema for Person. A person should have several properties:
 `name.firstName`, `name.lastName`, `dob`, `height`, `weight`, and `name.full` (a
