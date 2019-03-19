@@ -28,7 +28,8 @@ By the end of this talk, developers should be able to:
 
 ## Preparation
 
-1. [Fork and clone](https://git.generalassemb.ly/ga-wdi-boston/meta/wiki/ForkAndClone) this repository
+1. [Fork and clone](https://git.generalassemb.ly/ga-wdi-boston/meta/wiki/ForkAndClone)
+   this repository
 1. Create a new branch, `training`, for your work.
 1. Checkout to the `training` branch.
 1. Install dependencies with `npm install`.
@@ -52,9 +53,12 @@ consistency in our data.
 
 The core elements of Mongoose are:
 
-- [Documents](http://mongoosejs.com/docs/documents.html), JavaScript objects that map to Documents in MongoDB.
-- [Models](http://mongoosejs.com/docs/models.html), which are Constructor functions that generate new Documents.
-- [Schemas](http://mongoosejs.com/docs/guide.html), which specify the properties that the Models give to their respective Documents.
+- [Documents](http://mongoosejs.com/docs/documents.html), JavaScript objects
+  that map to Documents in MongoDB.
+- [Models](http://mongoosejs.com/docs/models.html), which are Constructor
+  functions that generate new Documents.
+- [Schemas](http://mongoosejs.com/docs/guide.html), which specify the properties
+  that the Models give to their respective Documents.
 
 Let's look at an example.
 
@@ -140,13 +144,6 @@ As you can see, the code in that section is incomplete.
 
 We're going to add the missing code so that our app can do CRUD.
 
-First, we need to connect to the database that `app-people.js` references,
- `mongoose-crud`.
-
-```bash
-mongo mongoose-crud
-```
-
 Inside `person.js`, which is located in the `models` directory, let's first
 define a Schema for Person. A person should have several properties:
 `name.firstName`, `name.lastName`, `dob`, `height`, `weight`, and `name.full` (a
@@ -167,7 +164,7 @@ of our mongoose schema.
 
 Now let's actually get into writing the CRUD actions.
 
-### Read
+### Code-along: Read
 
 Next, let's fill in the `index` and `show` (i.e. `search`) methods. To do this,
 we're going to need to query MongoDB using Mongoose. Mongoose has a couple of
@@ -181,7 +178,9 @@ methods for doing this, just like ActiveRecord did.
 
 For `index`, we want to get all People, so we'll use `find`.
 
-The [Mongoose documentation](http://mongoosejs.com/docs/api.html#model_Model.find) gives the signature of `find` as
+The
+[Mongoose documentation](http://mongoosejs.com/docs/api.html#model_Model.find)
+gives the signature of `find` as
 
 ```javascript
 Model.find(conditions, [projection], [options], [callback])
@@ -194,22 +193,16 @@ lastly, `find` accepts a callback.
 Pro tip: if you use `<query term(s)> site:mongoosejs.com` or in this case `find
 site:mongoosejs.com` google will only search that site!
 
-*Please follow along as I code this action*
-
 Now let's implement `show`. We'll use `findById` instead of `find`, since we
 specifically want to look up a document by its ID.
 
-*Please follow along as I code this action*
-
-### Destroy
+### Code-along: Destroy
 
 The `destroy` method should look a lot like the `show` and `update` methods.
 
 The Mongoose method we want to use here is [`remove`](http://mongoosejs.com/docs/api.html#query_Query-remove);
 
-*Please follow along as I code this action*
-
-### Update
+### Code-along: Update
 
 To do an update in Rails, you need to
  (a) look up the record you want by its ID, and then
@@ -218,9 +211,7 @@ As we've just seen, the first of these can be accomplished using `findById`.
 To do the second, we need to actually change a property on the document,
 and then run [`.save`](http://mongoosejs.com/docs/api.html#model_Model-save).
 
-*Please follow along as I code this action*
-
-### Create
+### Code-along: Create
 
 Finishing the `create` method will be pretty straightforward, since Mongoose
 already gives us a `create` method.
@@ -239,8 +230,6 @@ That callback will be handed several arguments: first, a reference to any
 errors created during the `create` operation, and second, a list of references
 to the newly created documents (one for each object passed in).
 
-*Please follow along as I code this action*
-
 ## Note on Executing Mongoose Queries
 
 Mongoose queries can be executed a few different ways, including callbacks,
@@ -253,7 +242,8 @@ Most queries in Mongoose allow us to use `.then` and `.catch` for development,
 even though they don't really return a promise for us to chain.
 
 If we need more advanced promise features, we can use `.exec`, which
-[this article](https://stackoverflow.com/questions/31549857/mongoose-what-does-the-exec-function-do) goes into in depth.
+[this article](https://stackoverflow.com/questions/31549857/mongoose-what-does-the-exec-function-do)
+goes into in depth.
 
 ## Lab
 
@@ -267,7 +257,8 @@ Places have the following features:
 - isNorthernHemisphere? (virtual)
 - isWesternHemisphere? (virtual)
 
-First, read [this brief overview](http://www.learner.org/jnorth/tm/LongitudeIntro.html) of latitude and longitude.
+First, read [this brief overview](http://www.learner.org/jnorth/tm/LongitudeIntro.html)
+of latitude and longitude.
 
 You should ensure that only reasonable values of latitude and longitude are
 allowed to be added to the database. Per the above article, latitude and
@@ -291,14 +282,14 @@ relationships in SQL and ORMs like ActiveRecord. The two main approaches are
 [subdocuments](http://mongoosejs.com/docs/subdocs.html) and
 [populate](http://mongoosejs.com/docs/populate.html).
 
-Read through the documentation on those features, then check out [this Stack
-Overflow discussion](https://stackoverflow.com/questions/21302279/embedded-document-vs-reference-in-mongoose-design-model)
+Read through the documentation on those features, then check out
+[this Stack Overflow discussion](https://stackoverflow.com/questions/21302279/embedded-document-vs-reference-in-mongoose-design-model)
 on the pros and cons of each.
 
 Discuss what you've read with your team. Talk about the differences between the
 two approaches and how you might go about implementing each of them.
 
-You can see an example of `populate` in action in the `solution-relationships`
+You can see an example of `populate` in action in the `solution`
 branch to this repo. It has a one-to-many relationship set up between people and
 places, the two "controllers" we built out.
 

@@ -9,50 +9,45 @@ const db = mongoose.connection
 
 const Person = require('../models/person')
 
+const fs = require('fs')
+
 const done = function () {
   db.close()
 }
 
 const loadPeople = () =>
   new Promise((resolve, reject) => {
-    const people = []
-    const fs = require('fs')
     const parse = require('csv').parse
-    const parser = parse({ columns: true })
 
-    const input = fs.createReadStream('data/people.csv')
-    input.on('error', e => reject(e))
+    const input = fs.readFileSync('./data/people.csv', 'utf8')
 
-    parser.on('readable', () => {
-      const record = parser.read()
+    parse(input, { columns: true }, (err, output) => {
+      if (err) reject(err)
 
-      if (record) {
-        record.name = {firstName: record.first_name, lastName: record.last_name}
-
-        delete record.first_name
-        delete record.last_name
-
-        people.push(record)
-      }
+      resolve(output.map(person => ({
+        name: { firstName: person.first_name, lastName: person.last_name },
+        height: person.height,
+        weight: person.weight,
+        dob: person.dob
+      })))
     })
-
-    parser.on('error', e => reject(e))
-    parser.on('finish', () => resolve(people))
-    input.pipe(parser)
   })
 
 db.once('open', function () {
+  // if the Person model file is empty or malformed, tell the user so
+  if (!Person.insertMany) {
+    console.log('You must create and export a person model before running this script.')
+    return done()
+  }
+
   loadPeople()
     // Below is the way to insert that bypasses mongoose validations
     // .then((people) => {
     //   Person.collection.insert(people)
     // })
-
     // This inserts and runs the documents through mongoose validations
     .then(Person.insertMany)
-    .then((docs) => {
-      console.log(docs.length + ' documents inserted')
-    })
+    .then(docs => console.log(docs.length + ' documents inserted'))
     .then(done)
     .catch(console.log)
 })

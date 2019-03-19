@@ -1,5 +1,0 @@
-{
-  "server": {
-    "script": "bin/index.js"
-  }
-}
