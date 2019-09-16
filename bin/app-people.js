@@ -40,7 +40,7 @@ db.once('open', function () {
   let id
 
   switch (command) {
-    case 'create':
+    case 'create': {
       const firstName = process.argv[3]
       const lastName = process.argv[4]
       const dob = process.argv[5]
@@ -50,19 +50,19 @@ db.once('open', function () {
       create(firstName, lastName, dob, height, weight)
 
       break
-
-    case 'show':
+    }
+    case 'show': {
       id = process.argv[3]
       show(id)
       break
-
-    case 'update':
+    }
+    case 'update': {
       id = process.argv[3]
       field = process.argv[4]
       const value = process.argv[5]
       update(id, field, value)
       break
-
+    }
     case 'destroy':
       id = process.argv[3]
       destroy(id)

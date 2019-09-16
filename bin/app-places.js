@@ -40,7 +40,7 @@ db.once('open', function () {
   let id
 
   switch (command) {
-    case 'create':
+    case 'create': {
       const name = process.argv[3]
       const latitude = process.argv[4]
       const longitude = process.argv[5]
@@ -49,19 +49,19 @@ db.once('open', function () {
       create(name, latitude, longitude, country)
 
       break
-
+    }
     case 'show':
       id = process.argv[3]
       show(id)
       break
 
-    case 'update':
+    case 'update': {
       id = process.argv[3]
       field = process.argv[4]
       const value = process.argv[5]
       update(id, field, value)
       break
-
+    }
     case 'destroy':
       id = process.argv[3]
       destroy(id)
