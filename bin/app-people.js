@@ -13,22 +13,29 @@ const done = function () { // eslint-disable-line no-unused-vars
   db.close()
 }
 
+// node bin/app-people.js
+// OR
+// node bin/app-people.js index
 const index = function () {
   /* Add Code Here */
 }
 
+// node bin/app-people.js show 5d2b272ca6d0b658d2c9eb3e
 const show = function (id) {
   /* Add Code Here */
 }
 
+// node bin/app-people.js destroy 5d2b272ca6d0b658d2c9eb3e
 const destroy = function (id) {
   /* Add Code Here */
 }
 
+// node bin/app-people.js update 5d2b272ca6d0b658d2c9eb3e height 62
 const update = function (id, field, value) {
   /* Add Code Here */
 }
 
+// node bin/app-people.js create Fred Jones '1998-03-08' 62 240
 const create = function (firstName, lastName, dob, height, weight) {
   /* Add Code Here */
 }
