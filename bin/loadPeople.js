@@ -25,7 +25,8 @@ const loadPeople = () =>
       if (err) reject(err)
 
       resolve(output.map(person => ({
-        name: { firstName: person.first_name, lastName: person.last_name },
+        firstName: person.first_name,
+        lastName: person.last_name,
         height: person.height,
         weight: person.weight,
         dob: person.dob
