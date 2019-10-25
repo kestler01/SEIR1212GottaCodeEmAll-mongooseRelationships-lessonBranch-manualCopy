@@ -47,7 +47,7 @@ db.once('open', function () {
     //   Person.collection.insert(people)
     // })
     // This inserts and runs the documents through mongoose validations
-    .then(Person.insertMany)
+    .then(people => Person.insertMany(people))
     .then(docs => console.log(docs.length + ' documents inserted'))
     .then(done)
     .catch(console.log)
