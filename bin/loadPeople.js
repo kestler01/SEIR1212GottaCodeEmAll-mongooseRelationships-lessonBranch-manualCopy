@@ -14,6 +14,7 @@ const fs = require('fs')
 
 const done = function () {
   db.close()
+  process.exit()
 }
 
 const loadPeople = () =>
