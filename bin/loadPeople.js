@@ -3,7 +3,8 @@
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb://localhost/mongoose-crud', {
-  useMongoClient: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 })
 const db = mongoose.connection
 
@@ -13,6 +14,7 @@ const fs = require('fs')
 
 const done = function () {
   db.close()
+  process.exit()
 }
 
 const loadPeople = () =>
@@ -25,7 +27,8 @@ const loadPeople = () =>
       if (err) reject(err)
 
       resolve(output.map(person => ({
-        name: { firstName: person.first_name, lastName: person.last_name },
+        firstName: person.first_name,
+        lastName: person.last_name,
         height: person.height,
         weight: person.weight,
         dob: person.dob
@@ -46,7 +49,7 @@ db.once('open', function () {
     //   Person.collection.insert(people)
     // })
     // This inserts and runs the documents through mongoose validations
-    .then(Person.insertMany)
+    .then(people => Person.insertMany(people))
     .then(docs => console.log(docs.length + ' documents inserted'))
     .then(done)
     .catch(console.log)

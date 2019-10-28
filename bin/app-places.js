@@ -3,7 +3,8 @@
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb://localhost/mongoose-crud', {
-  useMongoClient: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 })
 const db = mongoose.connection
 
