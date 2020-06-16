@@ -95,6 +95,7 @@ const User = mongoose.model('User', userSchema);
 ## Additional Resources
 
 - [Embedded document vs Reference](https://stackoverflow.com/questions/21302279/embedded-document-vs-reference-in-mongoose-design-model)
+- [Mongoose 101: Working with subdocuments](https://zellwk.com/blog/mongoose-subdocuments/)
 - Mongoose Reference
   - [Mongoose Docs](http://mongoosejs.com/docs/populate.html)
   - [Code Barbarian blog post](http://thecodebarbarian.com/mongoose-virtual-populate)
