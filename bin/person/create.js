@@ -16,7 +16,7 @@ const db = mongoose.connection
 const Person = require('./../../models/person')
 
 // get input from command line
-// node bin/person/create.js 'Fred' 'Jones' '1998-03-08' 62 240
+// node bin/person/create.js Fred Jones 1998-03-08 62 240
 const firstNameUserInput = process.argv[2]
 const lastNameUserInput = process.argv[3]
 const dobUserInput = process.argv[4]

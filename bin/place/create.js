@@ -16,7 +16,7 @@ const db = mongoose.connection
 const Place = require('./../../models/place')
 
 // get input from command line
-// node bin/place/create.js 'Fred' 'Jones' '1998-03-08' 62 240
+// node bin/place/create.js Boston 42 -71 "United States"
 const nameUserInput = process.argv[2]
 const latitudeUserInput = process.argv[3]
 const longitudeUserInput = process.argv[4]
