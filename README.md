@@ -116,7 +116,7 @@ We can determine this is a **one-to-many** relationship because each contact has
 single user reference.  If we created multiple contacts with the same user, then that
 user would have many contacts.
 
-![one-to-one relationship between user and contact](https://media.git.generalassemb.ly/user/16320/files/7a9c4c00-b168-11ea-85fa-997edd6cb9eb)
+![one-to-many relationship between user and contacts](https://media.git.generalassemb.ly/user/16320/files/59dbf280-b178-11ea-95af-ee550ac34d58)
 
 ### Lab: One-to-Many Add Person to Comment as Owner
 
