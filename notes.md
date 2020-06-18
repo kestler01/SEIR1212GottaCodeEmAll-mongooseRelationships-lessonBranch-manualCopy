@@ -12,7 +12,7 @@ extra relationship code:
 
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb://localhost/mongoose-crud', {
+mongoose.connect('mongodb://localhost/mongoose-relationships', {
   useMongoClient: true
 })
 const db = mongoose.connection
