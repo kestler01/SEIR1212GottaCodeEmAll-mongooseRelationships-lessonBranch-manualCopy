@@ -20,9 +20,9 @@ db.once('open', function () {
   // find all person documents in mongodb
   Place.find()
     // printing success or failure
-    .then((people) => {
+    .then(places => {
       // loop through each place document
-      people.forEach(place => {
+      places.forEach(place => {
         // turning it to json
         console.log(place.toJSON())
       })

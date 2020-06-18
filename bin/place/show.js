@@ -21,7 +21,7 @@ const userInputId = process.argv[2]
 
 // open connection to db
 db.once('open', function () {
-  // find a specific person in mongodb
+  // find a specific place in mongodb
   Place.findById(userInputId)
     // printing success or failure
     .then((place) => {
