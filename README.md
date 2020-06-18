@@ -38,20 +38,20 @@ relationship between resources in the same way that SQL does. The two main appro
 const contactSchema = new Schema({
   phone: String,
   email: String
-});
+})
 
 const postSchema = new Schema({
   title: String,
   body: String
-});
+})
 
 const userSchema = new Schema({
-  username: String
+  username: String,
   // a single nested contact subdocument
   contact: contactSchema,
   // an array of posts subdocuments
   posts: [postSchema]
-});
+})
 ```
 
 In the example above we added two different kinds of relationships.
@@ -90,7 +90,7 @@ we'll say that **one** place has **many** comments.
 const userSchema = Schema({
   _id: Schema.Types.ObjectId,
   username: String
-});
+})
 
 const contactSchema = Schema({
   _id: Schema.Types.ObjectId,
@@ -102,10 +102,10 @@ const contactSchema = Schema({
   },
   phone: String,
   email: String
-});
+})
 
-const Contact = mongoose.model('Contact', contactSchema);
-const User = mongoose.model('User', userSchema);
+const Contact = mongoose.model('Contact', contactSchema)
+const User = mongoose.model('User', userSchema)
 ```
 
 In the example above we added a **one-to-many** relationship with a **reference**.
