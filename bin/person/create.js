@@ -25,7 +25,6 @@ const weightUserInput = process.argv[6]
 
 // open connection to db
 db.once('open', function () {
-
   // save person to mongodb
   Person.create({
     firstName: firstNameUserInput,
@@ -38,5 +37,5 @@ db.once('open', function () {
     .then(console.log)
     .catch(console.error)
     // close connection to db
-    .finally(()=> db.close())
+    .finally(() => db.close())
 })

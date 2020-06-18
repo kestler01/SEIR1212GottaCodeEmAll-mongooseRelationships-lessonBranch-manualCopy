@@ -17,8 +17,7 @@ const Place = require('./../../models/place')
 
 // open connection to db
 db.once('open', function () {
-
-  // save place to mongodb
+  // find all person documents in mongodb
   Place.find()
     // printing success or failure
     .then((people) => {
@@ -30,5 +29,5 @@ db.once('open', function () {
     })
     .catch(console.error)
     // close connection to db
-    .finally(()=> db.close())
+    .finally(() => db.close())
 })

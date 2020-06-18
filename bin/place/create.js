@@ -24,7 +24,6 @@ const countryUserInput = process.argv[5]
 
 // open connection to db
 db.once('open', function () {
-
   // save place to mongodb
   Place.create({
     name: nameUserInput,
@@ -36,5 +35,5 @@ db.once('open', function () {
     .then(console.log)
     .catch(console.error)
     // close connection to db
-    .finally(()=> db.close())
+    .finally(() => db.close())
 })

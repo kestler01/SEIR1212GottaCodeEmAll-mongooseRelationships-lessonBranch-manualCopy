@@ -23,20 +23,19 @@ const userInputValue = process.argv[4]
 
 // open connection to db
 db.once('open', function () {
-
-  // save person to mongodb
+// find a specific person in mongodb
   Person.findById(userInputId)
-    // printing success or failure
     .then(person => {
+      // update the person object with the passed in key and value
+      person[userInputKey] = userInputValue
 
-        person[userInputKey] = userInputValue
-
-        return person.save()
+      // then save the person document in the database
+      return person.save()
     })
     .then(person => {
       console.log(person.toJSON())
     })
     .catch(console.error)
     // close connection to db
-    .finally(()=> db.close())
+    .finally(() => db.close())
 })

@@ -21,18 +21,17 @@ const userInputId = process.argv[2]
 
 // open connection to db
 db.once('open', function () {
-
-  // save place to mongodb
+  // find a specific place in mongodb
   Place.findById(userInputId)
-    // printing success or failure
     .then(place => {
+      // delete the specifc place
       return place.deleteOne()
     })
     .then(place => {
-        // turning it to json
-        console.log('deleted', place.toJSON())
+      // turning it to json
+      console.log('deleted', place.toJSON())
     })
     .catch(console.error)
     // close connection to db
-    .finally(()=> db.close())
+    .finally(() => db.close())
 })

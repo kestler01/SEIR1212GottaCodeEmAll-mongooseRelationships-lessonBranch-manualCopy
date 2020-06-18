@@ -23,20 +23,20 @@ const userInputValue = process.argv[4]
 
 // open connection to db
 db.once('open', function () {
-
   // save place to mongodb
   Place.findById(userInputId)
     // printing success or failure
     .then(place => {
+      // update the place object with the passed in key and value
+      place[userInputKey] = userInputValue
 
-        place[userInputKey] = userInputValue
-
-        return place.save()
+      // then save the place document in the database
+      return place.save()
     })
     .then(place => {
       console.log(place.toJSON())
     })
     .catch(console.error)
     // close connection to db
-    .finally(()=> db.close())
+    .finally(() => db.close())
 })
