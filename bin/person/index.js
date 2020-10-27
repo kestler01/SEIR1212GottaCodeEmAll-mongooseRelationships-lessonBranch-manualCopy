@@ -2,8 +2,7 @@
 
 // instantiate mongodb and mongoose
 const mongoose = require('mongoose')
-// telling mongoose to use node's promise
-mongoose.Promise = global.Promise
+
 // connecting mongoose to mongodb
 mongoose.connect('mongodb://localhost/mongoose-relationships', {
   useNewUrlParser: true,

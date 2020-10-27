@@ -88,12 +88,11 @@ we'll say that **one** place has **many** comments.
 
 ```js
 const userSchema = Schema({
-  _id: Schema.Types.ObjectId,
-  username: String
+  username: String,
+  required: true
 })
 
 const contactSchema = Schema({
-  _id: Schema.Types.ObjectId,
   user: {
     // References use the type ObjectId
     type: Schema.Types.ObjectId,
