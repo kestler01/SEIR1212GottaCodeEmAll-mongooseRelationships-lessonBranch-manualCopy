@@ -128,6 +128,20 @@ then that user would have many contacts.
 
 ![one-to-many relationship between user and contacts](https://media.git.generalassemb.ly/user/16320/files/59dbf280-b178-11ea-95af-ee550ac34d58)
 
+### Code Along: One-to-Many Add Person to Place as Owner
+
+Lets create our first one-to-many relationship using references.
+**one** person can have **many** places.
+
+The reference should be called `owner`. It will be used to keep track of the
+person who created the place.
+
+1. (C)reate a Place include `owner`
+2. (R)ead All Places include `owner`
+3. (R)ead a Place include `owner`
+4. (U)date `owner`? No. Why not?
+5. (D)elete `owner`? No. Why not?
+
 ### Lab: One-to-Many Add Person to Comment as Owner
 
 Now its your turn to practice creating a one-to-many relationship! Create a
@@ -136,11 +150,9 @@ one-to-many relationship where **one** person can have **many** comments.
 The reference should be called `owner`. It will be used to keep track of the
 person who created the comment.
 
-1. (C)reate a Comment include Owner
-2. (R)ead All Comments include Owner
-3. (R)ead a Comment include Owner
-4. (U)date Owner? No. Why not?
-5. (D)elete Owner? No. Why not?
+1. (C)reate a Comment include `owner`
+2. (R)ead All Comments include `owner`
+3. (R)ead a Comment include `owner`
 
 ## Additional Resources
 
