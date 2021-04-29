@@ -137,8 +137,8 @@ The reference should be called `owner`. It will be used to keep track of the
 person who created the place.
 
 1. (C)reate a Place include `owner`
-2. (R)ead All Places include `owner`
-3. (R)ead a Place include `owner`
+2. (R)ead All Places populating the `owner`
+3. (R)ead a Place populating the `owner`
 4. (U)date `owner`? No. Why not?
 5. (D)elete `owner`? No. Why not?
 
@@ -151,8 +151,7 @@ The reference should be called `owner`. It will be used to keep track of the
 person who created the comment.
 
 1. (C)reate a Comment include `owner`
-2. (R)ead All Comments include `owner`
-3. (R)ead a Comment include `owner`
+2. (R)ead a Comment populating the `owner`
 
 ## Additional Resources
 
