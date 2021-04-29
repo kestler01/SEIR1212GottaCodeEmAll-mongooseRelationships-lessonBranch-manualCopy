@@ -78,11 +78,11 @@ can have many posts. While each post only has one user.
 Together we will create our first **one-to-many** relationship. For this relationship,
 we'll say that **one** place has **many** comments.
 
-1. (C)reate Comment for Place
-2. (R)ead All Comments for Place
-3. (R)ead a Comment for Place
-4. (U)date Comment for Place
-5. (D)elete Comment for Place
+1. (C)reate Comment for a Place
+2. (R)ead All Comments for a Place by Reading a Place
+3. (R)ead a Comment for a Place
+4. (U)date a Comment for a Place
+5. (D)elete a Comment for a Place
 
 ## Reference
 
