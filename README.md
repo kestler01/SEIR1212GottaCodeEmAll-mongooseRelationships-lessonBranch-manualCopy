@@ -174,6 +174,10 @@ person who created the comment.
 1. (C)reate a Comment include `owner`
 2. (R)ead a Comment populating the `owner`
 
+> Hint: To populate the `owner` inside of the `comments` subdocument array, you
+> will need to provide the full path to the `owner`. [Review this example](https://stackoverflow.com/a/13031171/3500171)
+> showing how to populate a subdocument's `created_by` property.
+
 ## Additional Resources
 
 - [Embedded document vs Reference](https://stackoverflow.com/questions/21302279/embedded-document-vs-reference-in-mongoose-design-model)
