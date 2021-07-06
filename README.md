@@ -81,8 +81,29 @@ we'll say that **one** place has **many** comments.
 1. (C)reate Comment for a Place
 2. (R)ead All Comments for a Place by Reading a Place
 3. (R)ead a Comment for a Place
-4. (U)date a Comment for a Place
-5. (D)elete a Comment for a Place
+
+### Lab: One-to-Many Update & Delete Comments
+
+Now it's your turn. `(u)pdate` and `(d)elete` will build on reading a comment for a place.
+
+#### Lab: Update Comment
+
+Updating a subdocument can be done the same as a normal document. Review the documentation for [updating a document using save](https://mongoosejs.com/docs/documents.html#updating-using-save).
+
+1. Accept a new `body` and `title` for a specific comment. These will come from the user's input.
+2. Find the specific comment you want to update like in `show`.
+3. Update the comment's `title` and `body` with the new values. Make sure the changes are saved.
+4. Test it! Try updating a comment from the terminal.
+
+#### Lab: Destroy Comment
+
+Subdocuments are deleted differently than normal documents. Review the [documentation for removing subdocuments](https://mongoosejs.com/docs/subdocs.html#removing-subdocs).
+
+1. Find the specific comment you want to remove like in `show`.
+2. Remove the specific comment from the place's `comments` subdocument array. Make sure the changes are saved.
+3. Test it! Try destroying a comment from the terminal.
+
+> Bonus: `pull` and `remove` are both methods that can remove subdocuments. If you finish early, try removing a comment using the other method.
 
 ## Reference
 
@@ -152,6 +173,10 @@ person who created the comment.
 
 1. (C)reate a Comment include `owner`
 2. (R)ead a Comment populating the `owner`
+
+> Hint: To populate the `owner` inside of the `comments` subdocument array, you
+> will need to provide the full path to the `owner`. [Review this example](https://stackoverflow.com/a/13031171/3500171)
+> showing how to populate a subdocument's `created_by` property.
 
 ## Additional Resources
 
