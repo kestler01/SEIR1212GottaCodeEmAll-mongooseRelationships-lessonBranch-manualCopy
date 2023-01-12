@@ -3,11 +3,6 @@
 // instantiate mongodb and mongoose
 const mongoose = require('./../../db/connection')
 
-// connecting mongoose to mongodb
-mongoose.connect('mongodb://localhost/mongoose-relationships', {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-})
 // connect the db
 const db = mongoose.connection
 

@@ -1,13 +1,13 @@
 {
-  "name": "ga-wdi-boston.mongoose",
-  "version": "0.1.0",
-  "private": true,
-  "license": {
-    "software": "GNU GPLv3",
-    "content": "CC­BY­NC­SA 4.0"
+  "name": "mongoose-relationships",
+  "version": "1.0.0",
+  "license": "ISC",
+  "author": "Andrew Kidd-Kestler",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "csv": "^1.1.1",
-    "mongoose": "^5.7.7"
+    "mongoose": "^6.6.1"
   }
 }
