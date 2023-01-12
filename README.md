@@ -62,9 +62,7 @@ const userSchema = new Schema({
 ```
 
 In the example above we added two different kinds of relationships.
-A [**one-to-one**](https://en.wikipedia.org/wiki/One-to-one_(data_model))
-relationship and a [**one-to-many**](https://en.wikipedia.org/wiki/One-to-many_(data_model))
-relationship.
+A [**one-to-one**](https://en.wikipedia.org/wiki/One-to-one_(data_model)) relationship and a [**one-to-many**](https://en.wikipedia.org/wiki/One-to-many_(data_model)) relationship.
 
 The userSchema has a **one-to-one** relationship with contact, because each user
 has one contact. Conversely, this means each contact also has one user.
@@ -76,35 +74,37 @@ can have many posts. While each post only has one user.
 
 ![one-to-one relationship between user and posts](https://media.git.generalassemb.ly/user/16320/files/87b93b00-b168-11ea-95bb-fc2e24e2206e)
 
-### Code Along: One-to-Many Add Comments to Places
+### Code Along: One-to-Many Add Equipment to character
 
 Together we will create our first **one-to-many** relationship. For this relationship,
-we'll say that **one** place has **many** comments implemented as **subdocuments**.
+we'll say that **one** character has **many** equipment implemented as **subdocuments**.
 
-1. (C)reate Comment for a Place
-2. (R)ead All Comments for a Place by Reading a Place
-3. (R)ead a Comment for a Place
+1. (C)reate equipment for a Character
+2. (R)ead All equipment of a Character by Reading a character
+3. (R)ead an equipment for a Character
 
-### Lab: One-to-Many Update & Delete Comments
+### Lab: One-to-Many Update & Delete Equipment 
 
-Now it's your turn. `(u)pdate` and `(d)elete` will build on reading a comment for a place.
+>Things break! maybe we lose them, _with the *hand*?_ 
 
-#### Update Comment
+Now it's your turn. `(u)pdate` and `(d)elete` will build on reading an equipment for character
+
+#### Update equipment
 
 Updating a subdocument can be done the same as a normal document. Review the documentation for [updating a document using save](https://mongoosejs.com/docs/documents.html#updating-using-save).
 
-1. Accept a new `body` and `title` for a specific comment. These will come from the user's input.
-2. Find the specific comment you want to update like in `show`.
-3. Update the comment's `title` and `body` with the new values. Make sure the changes are saved.
-4. Test it! Try updating a comment from the terminal.
+1. Accept a new `name`, `isBroken`, and `description` for a specific comment. These will come from the user's input.
+2. Find the specific equipment you want to update like in `show`.
+3. Update the comment's attributes with the new values. Make sure the changes are _saved_.
+4. Test it! Try updating an equipment from the terminal. 
 
 #### Destroy Comment
 
 Subdocuments are deleted differently than normal documents. Review the [documentation for removing subdocuments](https://mongoosejs.com/docs/subdocs.html#removing-subdocs).
 
-1. Find the specific comment you want to remove like in `show`.
-2. Remove the specific comment from the place's `comments` subdocument array. Make sure the changes are saved.
-3. Test it! Try destroying a comment from the terminal.
+1. Find the specific equipment you want to remove like in `show`.
+2. Remove the specific equipment from the character's `equipment` subdocument array. Make sure the changes are saved.
+3. Test it! Try destroying the light saber equipment from the terminal.
 
 > Bonus: `pull` and `remove` are both methods that can remove subdocuments. If you finish early, try removing a comment using the other method.
 ---
@@ -151,7 +151,7 @@ then that user would have many contacts.
 
 ![one-to-many relationship between user and contacts](https://media.git.generalassemb.ly/user/16320/files/59dbf280-b178-11ea-95af-ee550ac34d58)
 
-### Code Along: One-to-Many Add Person to Place as Owner
+### Code Along: One-to-Many Add Character to Starship as Crew
 
 Lets create our first one-to-many relationship using references.
 **one** person can have **many** places.

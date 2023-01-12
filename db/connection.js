@@ -6,7 +6,7 @@ const CONFIG = {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 }
-
+mongoose.set('strictQuery', false)
 mongoose.connect(DATABASE_URL, CONFIG)
 
 mongoose.connection
