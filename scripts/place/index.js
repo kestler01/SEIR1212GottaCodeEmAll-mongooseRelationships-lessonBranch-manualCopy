@@ -1,7 +1,7 @@
 'use strict'
 
 // instantiate mongodb and mongoose
-const mongoose = require('mongoose')
+const mongoose = require('./../../db/connection')
 
 // connecting mongoose to mongodb
 mongoose.connect('mongodb://localhost/mongoose-relationships', {
@@ -11,19 +11,19 @@ mongoose.connect('mongodb://localhost/mongoose-relationships', {
 // connect the db
 const db = mongoose.connection
 
-// require Person model
-const Person = require('./../../models/person')
+// require Place model
+const Place = require('./../../models/place')
 
 // open connection to db
 db.once('open', function () {
   // find all person documents in mongodb
-  Person.find()
+  Place.find()
     // printing success or failure
-    .then((people) => {
-      // loop through each person document
-      people.forEach(person => {
+    .then(places => {
+      // loop through each place document
+      places.forEach(place => {
         // turning it to json
-        console.log(person.toJSON())
+        console.log(place.toJSON())
       })
     })
     .catch(console.error)

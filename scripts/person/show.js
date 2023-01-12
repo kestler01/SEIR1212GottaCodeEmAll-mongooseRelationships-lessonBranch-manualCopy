@@ -1,7 +1,7 @@
 'use strict'
 
 // instantiate mongodb and mongoose
-const mongoose = require('mongoose')
+const mongoose = require('./../../db/connection')
 
 // connecting mongoose to mongodb
 mongoose.connect('mongodb://localhost/mongoose-relationships', {
@@ -15,23 +15,16 @@ const db = mongoose.connection
 const Person = require('./../../models/person')
 
 // get input from command line
-// node bin/person/update.js 123423432 firstName Bob
+// node bin/person/show.js 123423432
 const userInputId = process.argv[2]
-const userInputKey = process.argv[3]
-const userInputValue = process.argv[4]
 
 // open connection to db
 db.once('open', function () {
-// find a specific person in mongodb
+  // find a specific person in mongodb
   Person.findById(userInputId)
-    .then(person => {
-      // update the person object with the passed in key and value
-      person[userInputKey] = userInputValue
-
-      // then save the person document in the database
-      return person.save()
-    })
-    .then(person => {
+    // printing success or failure
+    .then((person) => {
+      // turning it to json
       console.log(person.toJSON())
     })
     .catch(console.error)

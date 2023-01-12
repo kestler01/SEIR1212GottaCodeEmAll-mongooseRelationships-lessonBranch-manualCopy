@@ -1,7 +1,7 @@
 'use strict'
 
 // instantiate mongodb and mongoose
-const mongoose = require('mongoose')
+const mongoose = require('./../../db/connection')
 
 // connecting mongoose to mongodb
 mongoose.connect('mongodb://localhost/mongoose-relationships', {

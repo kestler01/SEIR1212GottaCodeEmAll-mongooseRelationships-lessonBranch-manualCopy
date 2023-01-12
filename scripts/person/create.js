@@ -1,7 +1,7 @@
 'use strict'
 
 // instantiate mongodb and mongoose
-const mongoose = require('mongoose')
+const mongoose = require('./../../db/connection')
 
 // connecting mongoose to mongodb
 mongoose.connect('mongodb://localhost/mongoose-relationships', {
@@ -15,22 +15,25 @@ const db = mongoose.connection
 const Person = require('./../../models/person')
 
 // get input from command line
-// node bin/person/destroy.js 123423432
-const userInputId = process.argv[2]
+// node bin/person/create.js Fred Jones 1998-03-08 62 240
+const firstNameUserInput = process.argv[2]
+const lastNameUserInput = process.argv[3]
+const dobUserInput = process.argv[4]
+const heightUserInput = process.argv[5]
+const weightUserInput = process.argv[6]
 
 // open connection to db
 db.once('open', function () {
-  // find a specific person in mongodb
-  Person.findById(userInputId)
+  // save person to mongodb
+  Person.create({
+    firstName: firstNameUserInput,
+    lastName: lastNameUserInput,
+    dob: dobUserInput,
+    height: heightUserInput,
+    weight: weightUserInput
+  })
     // printing success or failure
-    .then(person => {
-      // delete the specific person
-      return person.deleteOne()
-    })
-    .then(person => {
-      // turning it to json
-      console.log('deleted', person.toJSON())
-    })
+    .then(console.log)
     .catch(console.error)
     // close connection to db
     .finally(() => db.close())

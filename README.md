@@ -4,9 +4,8 @@
 
 ## Prerequisites
 
-- [MongoDB](https://git.generalassemb.ly/ga-wdi-boston/mongodb-crud)
-- [Mongoose Study](https://git.generalassemb.ly/ga-wdi-boston/mongoose-study)
-- [Mongoose](https://git.generalassemb.ly/ga-wdi-boston/mongoose)
+- [MongoDB](https://github.com/SEIR-Boston/mongodb)
+- [Mongoose](https://github.com/SEIR-Boston/mongoose)
 
 ## Objectives
 
@@ -15,28 +14,32 @@ By the end of this talk, developers should be able to:
 - Add nested schema and use subdocuments in Mongoose.
 - Add references and use populate in Mongoose.
 
-## Preparation
+## Instructions
 
-1. [Fork and clone](https://git.generalassemb.ly/ga-wdi-boston/meta/wiki/ForkAndClone)
-    this repository
-2. Create a new branch, `training`, for your work.
-3. Checkout to the `training` branch.
-4. Install dependencies with `npm install`.
+You do not have the necessary rights to update this repository. Therefore, you must make a personal copy, or fork, make changes to your fork, and then send a pull request to the owners of this repository. When working with github classroom , github creates this fork exclusively through using the link provided by the instructional team. To successfully complete the assignment:
 
-As the term "non-relational" implies, MongoDB doesn't have a built-in notion of
-relationship between resources in the same way that SQL does. The two main
-approaches are [subdocuments](http://mongoosejs.com/docs/subdocs.html) and
-[references](http://mongoosejs.com/docs/populate.html).
+1. Accept the github classroom invitation
+1. Clone this repository
+1. Change into the new directory
+1. Checkout to a training branch
+1. Run npm install
+1. When you have fulfilled the requirements below, make a pull request on this repository to turn in your work.
+
+If you do not complete the assignment in the allotted time, submit any and all work so we can evaluate your participation.
+
+---
+
+### Relationships
+Throughout the week we may have heard the term "non-relational" in regards to MongoDB. Indeed, MongoDB doesn't have a built-in notion of
+relationship between resources in the same way that SQL databases do. Introducing the concept of these relationships to the abstract collections of MongoDB is one of the core strengths of Mongoose. By leveraging relationships we can begin to define the connections between our database resources. The two main approaches to implementing relationships are [subdocuments](http://mongoosejs.com/docs/subdocs.html) and [references](http://mongoosejs.com/docs/populate.html).
+
+---
 
 ## Subdocuments
 
-> Subdocuments are documents embedded in other documents. In Mongoose, this
-> means you can nest schemas in other schemas. Mongoose has two distinct
-> notions of subdocuments: arrays of subdocuments and single nested subdocuments.
+> Subdocuments are documents embedded in other documents. In Mongoose, this means you can nest schemas in other schemas. Mongoose has two distinct notions of subdocuments: arrays of subdocuments and single nested subdocuments, both demonstrated below.
 >
 > [mongodb subdocument docs](http://mongoosejs.com/docs/subdocs.html)
-
-![subdocs](https://docs.mongodb.com/manual/_images/data-model-denormalized.bakedsvg.svg)
 
 ```js
 const contactSchema = new Schema({
@@ -52,9 +55,9 @@ const postSchema = new Schema({
 const userSchema = new Schema({
   username: String,
   // a single nested contact subdocument
-  contact: contactSchema,
+  contact: contactSchema, 
   // an array of posts subdocuments
-  posts: [postSchema]
+  posts: [postSchema] 
 })
 ```
 
@@ -76,7 +79,7 @@ can have many posts. While each post only has one user.
 ### Code Along: One-to-Many Add Comments to Places
 
 Together we will create our first **one-to-many** relationship. For this relationship,
-we'll say that **one** place has **many** comments.
+we'll say that **one** place has **many** comments implemented as **subdocuments**.
 
 1. (C)reate Comment for a Place
 2. (R)ead All Comments for a Place by Reading a Place
@@ -86,7 +89,7 @@ we'll say that **one** place has **many** comments.
 
 Now it's your turn. `(u)pdate` and `(d)elete` will build on reading a comment for a place.
 
-#### Lab: Update Comment
+#### Update Comment
 
 Updating a subdocument can be done the same as a normal document. Review the documentation for [updating a document using save](https://mongoosejs.com/docs/documents.html#updating-using-save).
 
@@ -95,7 +98,7 @@ Updating a subdocument can be done the same as a normal document. Review the doc
 3. Update the comment's `title` and `body` with the new values. Make sure the changes are saved.
 4. Test it! Try updating a comment from the terminal.
 
-#### Lab: Destroy Comment
+#### Destroy Comment
 
 Subdocuments are deleted differently than normal documents. Review the [documentation for removing subdocuments](https://mongoosejs.com/docs/subdocs.html#removing-subdocs).
 
@@ -104,8 +107,8 @@ Subdocuments are deleted differently than normal documents. Review the [document
 3. Test it! Try destroying a comment from the terminal.
 
 > Bonus: `pull` and `remove` are both methods that can remove subdocuments. If you finish early, try removing a comment using the other method.
-
-## Reference
+---
+## References
 
 > Mongoose has an alternative called `populate()`, which lets you reference
 > documents in other collections.  Population is the process of automatically
@@ -115,7 +118,6 @@ Subdocuments are deleted differently than normal documents. Review the [document
 >
 > [mongodb populate docs](http://mongoosejs.com/docs/populate.html)
 
-![reference](https://docs.mongodb.com/manual/_images/data-model-normalized.bakedsvg.svg)
 
 ```js
 const userSchema = Schema({
@@ -179,28 +181,16 @@ person who created the comment.
 > showing how to populate a subdocument's `created_by` property.
 
 ## Additional Resources
-
-- [Embedded document vs Reference](https://stackoverflow.com/questions/21302279/embedded-document-vs-reference-in-mongoose-design-model)
+- [Schema rules of thumb and relationships](https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design)
+- [SOF Embedded document vs Reference](https://stackoverflow.com/questions/21302279/embedded-document-vs-reference-in-mongoose-design-model)
 - [Mongoose 101: Working with subdocuments](https://zellwk.com/blog/mongoose-subdocuments/)
-- Mongoose Reference
+- [Mongoose Reference Docs](http://mongoosejs.com/docs/populate.html)
   - [Mongoose Docs](http://mongoosejs.com/docs/populate.html)
   - [Code Barbarian blog post](http://thecodebarbarian.com/mongoose-virtual-populate)
-- Mongoose Subdocuments
-  - [Mongoose Docs](http://mongoosejs.com/docs/subdocs.html)
-  - [Coderwall blog post](https://coderwall.com/p/6v5rcw/querying-sub-documents-and-sub-sub-documents-in-mongoose)
+- [Mongoose Subdocuments Docs](http://mongoosejs.com/docs/subdocs.html)
 
-## Tasks
-
-Developers should run these often!
-
-- `grunt nag`: runs code quality analysis tools on your code
-    and complains.
-- `grunt test`: runs any automated tests; may depend on `grunt build`.
-- `grunt`: runs both `nag` and then `test`
-- `grunt make-standard`: reformats all your code in the standard style.
 
 ## [License](LICENSE)
 
 1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-2. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+2. All software code is licensed under GNU GPLv3. For commercial use or alternative licensing, please contact legal@ga.co.

@@ -1,7 +1,7 @@
 'use strict'
 
 // instantiate mongodb and mongoose
-const mongoose = require('mongoose')
+const mongoose = require('./../../db/connection')
 
 // connecting mongoose to mongodb
 mongoose.connect('mongodb://localhost/mongoose-relationships', {
@@ -14,18 +14,17 @@ const db = mongoose.connection
 // require Person model
 const Person = require('./../../models/person')
 
-// get input from command line
-// node bin/person/show.js 123423432
-const userInputId = process.argv[2]
-
 // open connection to db
 db.once('open', function () {
-  // find a specific person in mongodb
-  Person.findById(userInputId)
+  // find all person documents in mongodb
+  Person.find()
     // printing success or failure
-    .then((person) => {
-      // turning it to json
-      console.log(person.toJSON())
+    .then((people) => {
+      // loop through each person document
+      people.forEach(person => {
+        // turning it to json
+        console.log(person.toJSON())
+      })
     })
     .catch(console.error)
     // close connection to db

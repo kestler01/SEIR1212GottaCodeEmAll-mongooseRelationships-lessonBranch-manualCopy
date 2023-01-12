@@ -1,7 +1,7 @@
 'use strict'
 
 // instantiate mongodb and mongoose
-const mongoose = require('mongoose')
+const mongoose = require('./../../db/connection')
 
 // connecting mongoose to mongodb
 mongoose.connect('mongodb://localhost/mongoose-relationships', {
@@ -14,18 +14,24 @@ const db = mongoose.connection
 // require Place model
 const Place = require('./../../models/place')
 
+// get input from command line
+// node bin/place/create.js Boston 42 -71 "United States"
+const nameUserInput = process.argv[2]
+const latitudeUserInput = process.argv[3]
+const longitudeUserInput = process.argv[4]
+const countryUserInput = process.argv[5]
+
 // open connection to db
 db.once('open', function () {
-  // find all person documents in mongodb
-  Place.find()
+  // save place to mongodb
+  Place.create({
+    name: nameUserInput,
+    latitude: latitudeUserInput,
+    longitude: longitudeUserInput,
+    country: countryUserInput
+  })
     // printing success or failure
-    .then(places => {
-      // loop through each place document
-      places.forEach(place => {
-        // turning it to json
-        console.log(place.toJSON())
-      })
-    })
+    .then(console.log)
     .catch(console.error)
     // close connection to db
     .finally(() => db.close())

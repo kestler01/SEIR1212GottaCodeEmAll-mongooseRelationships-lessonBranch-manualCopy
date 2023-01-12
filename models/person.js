@@ -1,7 +1,7 @@
 'use strict'
 
 // requiring the mongoose library
-const mongoose = require('mongoose')
+const mongoose = require('../db/connection')
 
 // Create schema contstructor
 const Schema = mongoose.Schema
