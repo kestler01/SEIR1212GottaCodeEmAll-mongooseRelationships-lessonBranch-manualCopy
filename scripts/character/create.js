@@ -12,6 +12,15 @@ const Character = require('../../models/character')
 const firstNameUserInput = process.argv[2]
 const lastNameUserInput = process.argv[3]
 const isJediUserInput = process.argv[4]
+// const userInputEquipmentName = process.argv[5]
+// const userInputEquipmentIsBroken = process.argv[6]
+// const userInputEquipmentDescription = process.argv[7]
+
+// const equipObj = {
+// 	name: userInputEquipmentName,
+// 	isBroken: userInputEquipmentIsBroken,
+// 	description: userInputEquipmentDescription,
+// }
 
 // open connection to db
 db.once('open', function () {
@@ -20,6 +29,7 @@ db.once('open', function () {
 		firstName: firstNameUserInput,
 		lastName: lastNameUserInput,
 		isJedi: isJediUserInput,
+		// equipment: [ equipObj ]
 	})
 		// printing success or failure
 		.then(console.log)
@@ -29,8 +39,8 @@ db.once('open', function () {
 })
 // some notable Star Wars characters
 // node ./scripts/character/create.js Luke Skywalker true
-// node ./scripts/character/create.js Leia Organa 
+// node ./scripts/character/create.js Leia Organa
 // node ./scripts/character/create.js Han Solo
 // node ./scripts/character/create.js Lando Calrissian
 // node ./scripts/character/create.js Darth Vader false
-// node ./scripts/character/create.js Admiral Piet 
+// node ./scripts/character/create.js Admiral Piet

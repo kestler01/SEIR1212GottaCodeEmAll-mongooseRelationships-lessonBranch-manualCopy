@@ -17,11 +17,11 @@ const shieldsUserInput = process.argv[4] // bool
 
 // open connection to db
 db.once('open', function () {
-  // save starship to mongodb
-  Starship.create({
+	// save starship to mongodb
+	Starship.create({
 		name: nameUserInput,
 		model: modelUserInput,
-		shields: shieldsUserInput
+		shields: shieldsUserInput,
 	})
 		// printing success or failure
 		.then(console.log)
@@ -30,7 +30,7 @@ db.once('open', function () {
 		.finally(() => db.close())
 })
 
-// Keeping with the theme I have provided some star ships ready to go 
+// Keeping with the theme I have provided some star ships ready to go
 
 // THE Falcon
 // node ./scripts/starship/create.js "Millennium Falcon" "YT-1300" true
@@ -47,5 +47,5 @@ db.once('open', function () {
 // Razor Crest
 // node ./scripts/starship/create.js "Razor Crest" "ST-70 M-111" true
 
-// Custom N-1 
+// Custom N-1
 // node ./scripts/starship/create.js "Peli Special" " Heavily modified N-1 Custom" true

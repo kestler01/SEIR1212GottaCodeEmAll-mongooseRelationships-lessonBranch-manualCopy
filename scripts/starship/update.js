@@ -19,6 +19,7 @@ const userInputValue = process.argv[4]
 db.once('open', function () {
   // save starship to mongodb
   Starship.findById(userInputId)
+    .populate('owner')
     // printing success or failure
     .then(starship => {
       // update the starship object with the passed in key and value

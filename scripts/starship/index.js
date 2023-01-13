@@ -13,6 +13,7 @@ const Starship = require('./../../models/starship')
 db.once('open', function () {
   // find all person documents in mongodb
   Starship.find()
+    .populate('owner')
     // printing success or failure
     .then(starships => {
       // loop through each starship document

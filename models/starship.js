@@ -1,25 +1,38 @@
 'use strict'
 
 const mongoose = require('../db/connection')
-
-const starshipSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  model: {
-    type: String,
-    required: true
-  },
-  shields: {
-    type: Boolean,
-    required: false
-  }
-}, {
-  timestamps: true,
-  toObject: { virtuals: true },
-  toJSON: { virtuals: true }
-})
+const Character = require('./character')
+const starshipSchema = new mongoose.Schema(
+	{
+		name: {
+			type: String,
+			required: true,
+		},
+		model: {
+			type: String,
+			required: true,
+		},
+		shields: {
+			type: Boolean,
+			required: false,
+		},
+		owner: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Character',
+			default: null,
+			nullable: true,
+		},
+		crew: [{
+			type: mongoose.Schema.Types.ObjectId, 
+			ref: 'Character'
+		}],
+	},
+	{
+		timestamps: true,
+		toObject: { virtuals: true },
+		toJSON: { virtuals: true },
+	}
+)
 
 starshipSchema.virtual('isCrewed').get(function () {
   return (this?.crew?.length > 0)
