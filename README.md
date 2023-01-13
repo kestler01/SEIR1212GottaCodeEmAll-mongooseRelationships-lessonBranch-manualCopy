@@ -98,7 +98,7 @@ Updating a subdocument can be done the same as a normal document. Review the doc
 3. Update the equipment's attributes with the new values. Make sure the changes are _saved_.
 4. Test it! Try updating an equipment from the terminal. 
 
-##### Destroy Comment
+##### Destroy Equipment
 
 Subdocuments are deleted differently than normal documents. Review the [documentation for removing subdocuments](https://mongoosejs.com/docs/subdocs.html#removing-subdocs).
 
