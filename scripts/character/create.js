@@ -27,4 +27,10 @@ db.once('open', function () {
 		// close connection to db
 		.finally(() => db.close())
 })
+// some notable Star Wars characters
 // node ./scripts/character/create.js Luke Skywalker true
+// node ./scripts/character/create.js Leia Organa 
+// node ./scripts/character/create.js Han Solo
+// node ./scripts/character/create.js Lando Calrissian
+// node ./scripts/character/create.js Darth Vader false
+// node ./scripts/character/create.js Admiral Piet 

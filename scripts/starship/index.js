@@ -6,22 +6,24 @@ const mongoose = require('./../../db/connection')
 // connect the db
 const db = mongoose.connection
 
-// require Place model
-const Place = require('./../../models/place')
+// require Starship model
+const Starship = require('./../../models/starship')
 
 // open connection to db
 db.once('open', function () {
   // find all person documents in mongodb
-  Place.find()
+  Starship.find()
     // printing success or failure
-    .then(places => {
-      // loop through each place document
-      places.forEach(place => {
+    .then(starships => {
+      // loop through each starship document
+      starships.forEach(starship => {
         // turning it to json
-        console.log(place.toJSON())
+        console.log(starship.toJSON())
       })
     })
     .catch(console.error)
     // close connection to db
     .finally(() => db.close())
 })
+
+// node ./scripts/starship/index.js

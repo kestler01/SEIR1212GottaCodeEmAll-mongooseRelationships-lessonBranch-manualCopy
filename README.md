@@ -37,7 +37,7 @@ relationship between resources in the same way that SQL databases do. Introducin
 
 ## Subdocuments
 
-> Subdocuments are documents embedded in other documents. In Mongoose, this means you can nest schemas in other schemas. Mongoose has two distinct notions of subdocuments: arrays of subdocuments and single nested subdocuments, both demonstrated below.
+> Subdocuments are documents embedded in other documents. In Mongoose, this means you can nest schemas in other schemas. Mongoose has two distinct notions of subdocuments: arrays of subdocuments and single nested subdocuments, both are demonstrated below.
 >
 > [mongodb subdocument docs](http://mongoosejs.com/docs/subdocs.html)
 
@@ -89,24 +89,23 @@ we'll say that **one** character has **many** equipment implemented as **subdocu
 
 Now it's your turn. `(u)pdate` and `(d)elete` will build on reading an equipment for character
 
-#### Update equipment
+##### Update equipment
 
 Updating a subdocument can be done the same as a normal document. Review the documentation for [updating a document using save](https://mongoosejs.com/docs/documents.html#updating-using-save).
 
-1. Accept a new `name`, `isBroken`, and `description` for a specific comment. These will come from the user's input.
+1. Accept a new `name`, `isBroken`, and `description` for a specific equipment. These will come from the user's input.
 2. Find the specific equipment you want to update like in `show`.
-3. Update the comment's attributes with the new values. Make sure the changes are _saved_.
+3. Update the equipment's attributes with the new values. Make sure the changes are _saved_.
 4. Test it! Try updating an equipment from the terminal. 
 
-#### Destroy Comment
+##### Destroy Comment
 
 Subdocuments are deleted differently than normal documents. Review the [documentation for removing subdocuments](https://mongoosejs.com/docs/subdocs.html#removing-subdocs).
 
 1. Find the specific equipment you want to remove like in `show`.
 2. Remove the specific equipment from the character's `equipment` subdocument array. Make sure the changes are saved.
-3. Test it! Try destroying the light saber equipment from the terminal.
+3. Test it! Try destroying the lightsaber equipment from the terminal.
 
-> Bonus: `pull` and `remove` are both methods that can remove subdocuments. If you finish early, try removing a comment using the other method.
 ---
 ## References
 
@@ -151,34 +150,39 @@ then that user would have many contacts.
 
 ![one-to-many relationship between user and contacts](https://media.git.generalassemb.ly/user/16320/files/59dbf280-b178-11ea-95af-ee550ac34d58)
 
-### Code Along: One-to-Many Add Character to Starship as Crew
+### Code Along: One-to-Many Add Character to Starship as Owner
 
 Lets create our first one-to-many relationship using references.
-**one** person can have **many** places.
+**one** character can have **many** starships.
 
-The reference should be called `owner`. It will be used to keep track of the
-person who created the place.
+The reference should be called `owner`. It will be used to keep track of who currently owns the starship. 
 
-1. (C)reate a Place include `owner`
-2. (R)ead All Places populating the `owner`
-3. (R)ead a Place populating the `owner`
-4. (U)date `owner`? No. Why not?
-5. (D)elete `owner`? No. Why not?
+>Note: after updating the model we should drop the collection that already exist since they _do not_ have those changes. 
 
-### Lab: One-to-Many Add Person to Comment as Owner
+>In the galaxy far far away star ships are frequently changing hands, so we also want to implement update and delete here. In our future projects we will use owner to help authorize actions for authenticated users, and will specifically prevent updating or removing an owner.
+
+1. (C)reate a Starship include `owner` : Lando originally owns the 'Falcon
+2. (R)ead All Starships populating the `owner`
+3. (R)ead a Starship populating the `owner`
+4. (U)date `owner` : Han wins the 'Falcon "_fair and square_"
+5. (D)elete `owner` : _SOMEHOW_ the falcon gets left behind on Jakku at some point
+
+### Lab: One-to-Many Add Character to Starship as Crew
 
 Now its your turn to practice creating a one-to-many relationship! Create a
-one-to-many relationship where **one** person can have **many** comments.
+one-to-many relationship where **one** starship can have **many** crew.
 
-The reference should be called `owner`. It will be used to keep track of the
-person who created the comment.
+The reference should be called `crew`. It will be used to keep track of the
+characters on the spaceship.
+>Note: after updating the model we should drop the collection that already exist since they _do not_ have those changes. 
+1. (C)reate a Spaceship include `crew` : Han, Leia, and Luke crew the 'Falcon
+2. (R)ead a Spaceship populating the `crew`
+3. (U)pdate  `crew` : add yourself or any other character to the crew of the 'falcon 
+4. (D)elete `crew` : remove luke from the 'Falcons crew, he's going to pilot Red-5
 
-1. (C)reate a Comment include `owner`
-2. (R)ead a Comment populating the `owner`
-
-> Hint: To populate the `owner` inside of the `comments` subdocument array, you
+<!-- > Hint: To populate the `owner` inside of the `comments` subdocument array, you
 > will need to provide the full path to the `owner`. [Review this example](https://stackoverflow.com/a/13031171/3500171)
-> showing how to populate a subdocument's `created_by` property.
+> showing how to populate a subdocument's `created_by` property. -->
 
 ## Additional Resources
 - [Schema rules of thumb and relationships](https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design)

@@ -1,6 +1,5 @@
 'use strict'
 
-
 const mongoose = require('../db/connection')
 
 const starshipSchema = new mongoose.Schema({
@@ -12,9 +11,9 @@ const starshipSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  description: {
-    type: String,
-    required: true
+  shields: {
+    type: Boolean,
+    required: false
   }
 }, {
   timestamps: true,
@@ -23,12 +22,17 @@ const starshipSchema = new mongoose.Schema({
 })
 
 starshipSchema.virtual('isCrewed').get(function () {
-  return (crew.length > 0)
+  return (this?.crew?.length > 0)
 })
-starshipSchema.virtual('repair').get(function () {
-
+starshipSchema.virtual('isShielded').get(function () {
+  let shieldReading = 'The shields are down!'
+  if(this?.shields){ shieldReading = 'The shields are up'}
+  return (shieldReading )
 })
 
 const Starship = mongoose.model('Starship', starshipSchema)
 
 module.exports = Starship
+
+
+// if i want to drop my current collection of star ships open our mongodb shell and run db.starship.drop()

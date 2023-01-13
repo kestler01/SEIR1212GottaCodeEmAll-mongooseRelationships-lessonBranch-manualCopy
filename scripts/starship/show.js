@@ -6,23 +6,24 @@ const mongoose = require('./../../db/connection')
 // connect the db
 const db = mongoose.connection
 
-// require Place model
-const Place = require('./../../models/place')
+// require Starship model
+const Starship = require('./../../models/starship')
 
 // get input from command line
-// node bin/place/show.js 123423432
 const userInputId = process.argv[2]
 
 // open connection to db
 db.once('open', function () {
-  // find a specific place in mongodb
-  Place.findById(userInputId)
+  // find a specific starship in mongodb
+  Starship.findById(userInputId)
     // printing success or failure
-    .then((place) => {
+    .then((starship) => {
       // turning it to json
-      console.log(place.toJSON())
+      console.log(starship.toJSON())
     })
     .catch(console.error)
     // close connection to db
     .finally(() => db.close())
 })
+
+// node ./scripts/starship/show.js <id>

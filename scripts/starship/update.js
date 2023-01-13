@@ -6,31 +6,33 @@ const mongoose = require('./../../db/connection')
 // connect the db
 const db = mongoose.connection
 
-// require Place model
-const Place = require('./../../models/place')
+// require Starship model
+const Starship = require('./../../models/starship')
 
 // get input from command line
-// node bin/place/update.js 123423432 country USA
+
 const userInputId = process.argv[2]
 const userInputKey = process.argv[3]
 const userInputValue = process.argv[4]
 
 // open connection to db
 db.once('open', function () {
-  // save place to mongodb
-  Place.findById(userInputId)
+  // save starship to mongodb
+  Starship.findById(userInputId)
     // printing success or failure
-    .then(place => {
-      // update the place object with the passed in key and value
-      place[userInputKey] = userInputValue
+    .then(starship => {
+      // update the starship object with the passed in key and value
+      starship[userInputKey] = userInputValue
 
-      // then save the place document in the database
-      return place.save()
+      // then save the starship document in the database
+      return starship.save()
     })
-    .then(place => {
-      console.log(place.toJSON())
+    .then(starship => {
+      console.log(starship.toJSON())
     })
     .catch(console.error)
     // close connection to db
     .finally(() => db.close())
 })
+
+// node ./scripts/starship/update <id> <key> <value>
